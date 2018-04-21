@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2aea72f7-7df8-432f-82ac-b51e9b713da8" name="Default" comment="" />
+    <list default="true" id="2aea72f7-7df8-432f-82ac-b51e9b713da8" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/page/halfPlane10.html" afterPath="$PROJECT_DIR$/page/halfPlane10.html" />
+      <change beforePath="$PROJECT_DIR$/page/wedge9.html" afterPath="$PROJECT_DIR$/page/wedge9.html" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -20,8 +25,28 @@
       <file leaf-file-name="wedge9.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page/wedge9.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="53" column="68" lean-forward="false" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
+            <state relative-caret-position="422">
+              <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="halfPlane10.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/halfPlane10.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="119" column="31" lean-forward="false" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -59,6 +84,9 @@
       <find>arrayInit</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -86,7 +114,6 @@
         <option value="$PROJECT_DIR$/js_graph/beamTools.js" />
         <option value="$PROJECT_DIR$/js_graph/beanTools5.js" />
         <option value="$PROJECT_DIR$/js_graph/beamTools5.js" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/page/planeForce7.html" />
         <option value="$PROJECT_DIR$/page/boundaryCondition8.html" />
@@ -95,10 +122,11 @@
         <option value="$PROJECT_DIR$/page/tunnelForce4.html" />
         <option value="$PROJECT_DIR$/page/barrelForce3.html" />
         <option value="$PROJECT_DIR$/page/beam1.html" />
-        <option value="$PROJECT_DIR$/page/halfPlane10.html" />
-        <option value="$PROJECT_DIR$/page/wedge9.html" />
         <option value="$PROJECT_DIR$/page/waterWall2.html" />
         <option value="$PROJECT_DIR$/js_graph/smallHoleTools.js" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/page/halfPlane10.html" />
+        <option value="$PROJECT_DIR$/page/wedge9.html" />
       </list>
     </option>
   </component>
@@ -149,8 +177,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,11 +203,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -281,11 +309,12 @@
       <workItem from="1524182242426" duration="18825000" />
       <workItem from="1524263274711" duration="35384000" />
       <workItem from="1524312932326" duration="2956000" />
+      <workItem from="1524319377317" duration="1949000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475837000" />
+    <option name="totallyTimeSpent" value="477786000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,7 +333,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32018209" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.3276923" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25644916" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -482,35 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="55" column="27" lean-forward="false" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!block;n#arrayInit#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaX_formula#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaY_formula#0" expanded="false" />
-            <element signature="n#!!block;n#taoXY_formula#0" expanded="false" />
-            <element signature="n#!!block;n#addLine#0" expanded="false" />
-            <element signature="n#!!block;n#axisTransfer#0" expanded="false" />
-            <element signature="n#!!block;n#SigmaXArr#0" expanded="false" />
-            <element signature="n#!!block;n#SigmaXStr#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaX_ratioBlue#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaX_PointsBlue#0" expanded="false" />
-            <element signature="n#!!block;n#points2Lines#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaX_ratioGreen#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaX_PointsGreen#0" expanded="false" />
-            <element signature="n#!!block;n#points2LinesGreen#0" expanded="false" />
-            <element signature="n#!!block;n#SigmaYArr#0" expanded="false" />
-            <element signature="n#!!block;n#SigmaYStr#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaY_ratioBlue#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaY_PointsBlue#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaY_ratioGreen#0" expanded="false" />
-            <element signature="n#!!block;n#sigmaY_PointsGreen#0" expanded="false" />
-            <element signature="n#!!block;n#points2LinesGreen#1" expanded="false" />
-            <element signature="n#!!block;n#taoXYArr#0" expanded="false" />
-            <element signature="n#!!block;n#taoXYStr#0" expanded="false" />
-            <element signature="n#!!block;n#taoXY_ratioBlue#0" expanded="false" />
-            <element signature="n#!!block;n#taoXY_ratioGreen#0" expanded="false" />
-            <element signature="n#!!block;n#taoXY_PointsGreen#0" expanded="false" />
-            <element signature="n#!!block;n#points2LinesGreen#2" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -576,13 +576,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="98" column="18" lean-forward="true" selection-start-line="98" selection-start-column="18" selection-end-line="98" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js_graph/beamTools5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -644,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="95" column="4" lean-forward="false" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -652,7 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -660,7 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -668,7 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -683,15 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="174" column="4" lean-forward="false" selection-start-line="174" selection-start-column="4" selection-end-line="195" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/smallHole6.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-428">
-          <caret line="104" column="19" lean-forward="false" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -705,14 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/halfPlane10.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="48" column="52" lean-forward="false" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page/waterWall2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -721,10 +693,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/page/smallHole6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="104" column="19" lean-forward="false" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="119" column="31" lean-forward="false" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/halfPlane10.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/page/wedge9.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="68" lean-forward="false" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
+        <state relative-caret-position="422">
+          <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
           <folding />
         </state>
       </provider>
