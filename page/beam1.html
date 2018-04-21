@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>弹性力学</title>
+    <meta charset="utf-8">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../components/d3/d3.min.js"></script>
+    <script src="../components/function-plot/dist/function-plot.js"></script>
+    <script src="../js_graph/beamTools.js"></script>
+</head>
+<body>
+<div>
+    <div class="menu">
+        <ul>
+            <li><a class="active" href="../index.html">首页</a></li>
+
+            <div class="dropdown">
+                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <div class="dropdown-content">
+                    <a href="beam1.html">悬臂梁受集中力分析</a>
+                    <a href="waterWall2.html">挡水墙问题</a>
+                    <a href="barrelForce3.html">圆筒受均布力</a>
+                    <a href="tunnelForce4.html">压力隧洞</a>
+                    <a href="beam5.html">梁受均布荷载</a>
+                    <a href="smallHole6.html">小孔口问题</a>
+                    <a href="planeForce7.html">平面应力与平面应变</a>
+                    <a href="boundaryCondition8.html">边界条件</a>
+                    <a href="wedge9.html">楔形体受重力和液体压力</a>
+                    <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">帮助</a>
+                <div class="dropdown-content">
+                    <a href="#">使用方法</a>
+                    <a href="#">关于</a>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+    <div class="mid">
+        <h2>悬臂梁受集中力</h2>
+    </div>
+    <div class="main">
+        <div class="content">
+            <div class="left">
+                <img src="../src/beam1.jpg">
+                <img src="../src/beam2.jpg">
+                <p>h=2m &nbsp; L=15m</p>
+                <form name="form1" method="GET" action="beam1.html">
+                    FN =<input type="text" name="FN" id="FNID" >kN <br> <br>
+                    FS &nbsp;=<input type="text" name="FS" id="FSID" >kN <br> <br>
+                    M &nbsp; =<input type="text" name="M" id="MID" >kN*m <br> <br>
+                    <input type="submit" name="Submit" value="计算">
+                </form>
+            </div>
+            <div class="right">
+                <div id="root"></div>
+                <div id="root1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    // get form data from url
+    var request = {
+        QueryString: function (val) {
+            var uri = window.location.search;
+            var re = new RegExp("" + val + "=([^&?]*)", "ig");
+            return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
+        }
+    };
+    var FN = request.QueryString("FN");
+    var FS = request.QueryString("FS");
+    var M = request.QueryString("M");
+    // FN = parseFloat(FN);
+    // FS = parseFloat(FS);
+    // M = parseFloat(M);
+
+    document.getElementById("FNID").value = FN;
+    document.getElementById("FSID").value = FS;
+    document.getElementById("MID").value = M;
+    // end url get
+
+    //print f(x,y) of sigma X   taoXY
+    var fxySigmaX = new Array(5);
+    var fxyTaoX = new Array(5);
+
+    if ((FN != null) && (FS != null) && (M != null)) {
+        fxySigmaX = sigmaX(FN, FS, M);
+        fxyTaoX = taoXY(FS);
+    } else {
+        FN = FS = M = 0;
+        fxySigmaX = sigmaX(FN, FS, M);
+        fxyTaoX = taoXY(FS);
+    }
+
+    var line1 = fxySigmaX[0];
+    var line2 = fxySigmaX[1];
+    var line3 = fxySigmaX[2];
+    var line4 = fxySigmaX[3];
+    var line5 = fxySigmaX[4];
+
+    var line6 = fxyTaoX[0];
+    var line7 = fxyTaoX[1];
+    var line8 = fxyTaoX[2];
+    var line9 = fxyTaoX[3];
+    var line10 = fxyTaoX[4];
+
+    //plot blue line  sigma x
+    var formula = getblueLineFn(FN, FS, M);
+    var arr2 = absMaxMin(FN, FS, M);
+    var points = getPointArray(arr2);
+    var fnArr = getFnObj(formula, points, 'blue');
+
+    //plot green line  sigma x
+    var greenArr = getGreenArray(FN, FS, M);
+    var greePoints_green = getGreenPoints(greenArr);
+    var coefArr_green = getGreenCoef(greePoints_green);
+    var formula_green = getGreenFn(coefArr_green);
+
+    // plot blue line  taoXY
+
+    var blueArr = getBlueArray_taoXY(10);
+    var Points_blue = getBluePoints_taoXY(blueArr);
+    var coefArr_blue = getBlueCoef_taoXY(Points_blue);
+    var formula_blue_taoXY = getBlueFn_taoXY(coefArr_blue);
+    var taoXY_green = getBlueObjfn_taoXY(formula_blue_taoXY,Points_blue,'blue');
+
+    // plot green line taoXY
+    var greenArr_taoXY = getGreenArray_taoXY(FN, FS, M);
+    var greePoints_green_taoXY = getGreenPoints_taoXY(greenArr_taoXY);
+    var coefArr_green_taoXY = getGreenCoef_taoXY(greePoints_green_taoXY);
+    var formula_green_taoXY = getGreenFn(coefArr_green_taoXY);
+
+
+
+    functionPlot({
+        title: 'σx(kPa)',
+        target: '#root',
+        xAxis: {domain: [0, 16], label: 'X轴'},
+        yAxis: {domain: [-4, 4], label: 'Y轴'},
+        data: [
+            {fn: '-2', range: [0, 15], closed: true, color: 'gray'},
+            {fn: '2', range: [0, 15], closed: true, color: 'gray'},
+            fnArr[0], fnArr[1], fnArr[2], fnArr[3], fnArr[4], fnArr[5], fnArr[6], fnArr[7], fnArr[8], fnArr[9], fnArr[10], fnArr[11], fnArr[12], fnArr[13],
+            fnArr[14], fnArr[15],
+            {fn: formula_green[0][1], range:[0,15],color: 'green'},
+            {fn: formula_green[1][0], range:[0,15],color: 'green'}
+
+        ],
+        annotations: [
+            {y: -2, text: line5},
+            {y: -1, text: line4},
+            {y: 0, text: line3},
+            {y: 1, text: line2},
+            {y: 2, text: line1},
+
+            {x: 1}, {x: 15, text: 'x = 15'},
+            {x: 2}, {x: 15, text: 'x = 15'},
+            {x: 3}, {x: 15, text: 'x = 15'},
+            {x: 4}, {x: 15, text: 'x = 15'},
+            {x: 5}, {x: 15, text: 'x = 15'},
+            {x: 6}, {x: 15, text: 'x = 15'},
+            {x: 7}, {x: 15, text: 'x = 15'},
+            {x: 8}, {x: 15, text: 'x = 15'},
+            {x: 9}, {x: 15, text: 'x = 15'},
+            {x: 10}, {x: 15, text: 'x = 15'},
+            {x: 11}, {x: 15, text: 'x = 15'},
+            {x: 12}, {x: 15, text: 'x = 15'},
+            {x: 13}, {x: 15, text: 'x = 15'},
+            {x: 14}, {x: 15, text: 'x = 15'},
+            {x: 15}, {x: 15, text: 'x = 15'}
+        ]
+    });
+
+    // coordinate plot taoXY
+    functionPlot({
+        title: 'τxy(kPa)',
+        target: '#root1',
+        xAxis: {domain: [0, 16], label: 'X轴'},
+        yAxis: {domain: [-4, 4], label: 'Y轴'},
+        data: [
+            {fn: '-2', range: [0, 15], closed: true, color: 'gray'},
+            {fn: '2', range: [0, 15], closed: true, color: 'gray'},
+            taoXY_green[0],taoXY_green[1],taoXY_green[2],
+            taoXY_green[0],taoXY_green[1],taoXY_green[2],taoXY_green[3],taoXY_green[4],taoXY_green[5],taoXY_green[6],taoXY_green[7],
+            taoXY_green[8],taoXY_green[9],taoXY_green[10],taoXY_green[11],taoXY_green[12],taoXY_green[13],taoXY_green[14],taoXY_green[15],
+            {fn: formula_green_taoXY[0][1], range:[0,15],color: 'green'},
+            {fn: formula_green_taoXY[1][0], range:[0,15],color: 'green'}
+        ],
+        grid: true,
+        annotations: [
+            {y: -2, text: line10},
+            {y: -1, text: line9},
+            {y: 0, text: line8},
+            {y: 1, text: line7},
+            {y: 2, text: line6},
+
+            {x: 1}, {x: 15, text: 'x = 15'},
+            {x: 2}, {x: 15, text: 'x = 15'},
+            {x: 3}, {x: 15, text: 'x = 15'},
+            {x: 4}, {x: 15, text: 'x = 15'},
+            {x: 5}, {x: 15, text: 'x = 15'},
+            {x: 6}, {x: 15, text: 'x = 15'},
+            {x: 7}, {x: 15, text: 'x = 15'},
+            {x: 8}, {x: 15, text: 'x = 15'},
+            {x: 9}, {x: 15, text: 'x = 15'},
+            {x: 10}, {x: 15, text: 'x = 15'},
+            {x: 11}, {x: 15, text: 'x = 15'},
+            {x: 12}, {x: 15, text: 'x = 15'},
+            {x: 13}, {x: 15, text: 'x = 15'},
+            {x: 14}, {x: 15, text: 'x = 15'},
+            {x: 15}, {x: 15, text: 'x = 15'}
+        ]
+    });
+
+
+    window.onbeforeunload = function () {
+        var scrollPos;
+        if (typeof window.pageYOffset != 'undefined') {
+            scrollPos = window.pageYOffset;
+        }
+        else if (typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat') {
+            scrollPos = document.documentElement.scrollTop;
+        }
+        else if (typeof document.body != 'undefined') {
+            scrollPos = document.body.scrollTop;
+        }
+        document.cookie = "scrollTop=" + scrollPos; //存储滚动条位置到cookies中
+    };
+
+
+    window.onload = function () {
+        if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
+            var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/); //cookies中不为空，则读取滚动条位置
+            document.documentElement.scrollTop = parseInt(arr[1]);
+            document.body.scrollTop = parseInt(arr[1]);
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>弹性力学</title>
+    <meta charset="utf-8">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!--<script src="../components/d3/d3.min.js"></script>-->
+    <!--<script src="../components/function-plot/dist/function-plot_SIZE350.js"></script>-->
+
+    <script src="../components/newVersion/d3.min.js"></script>
+    <script src="../components/newVersion/fp.js"></script>
+    <script src="../js_graph/waterWallTools.js"></script>
+</head>
+<body >
+<div>
+    <div class="menu">
+        <ul>
+            <li><a class="active" href="../index.html">首页</a></li>
+
+            <div class="dropdown">
+                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <div class="dropdown-content">
+                    <a href="beam1.html">悬臂梁受集中力分析</a>
+                    <a href="waterWall2.html">挡水墙问题</a>
+                    <a href="barrelForce3.html">圆筒受均布力</a>
+                    <a href="tunnelForce4.html">压力隧洞</a>
+                    <a href="beam5.html">梁受均布荷载</a>
+                    <a href="smallHole6.html">小孔口问题</a>
+                    <a href="planeForce7.html">平面应力与平面应变</a>
+                    <a href="boundaryCondition8.html">边界条件</a>
+                    <a href="wedge9.html">楔形体受重力和液体压力</a>
+                    <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
+                </div>
+            </div>
+                        <div class="dropdown">
+                <a href="#" class="dropbtn">帮助</a>
+                <div class="dropdown-content">
+                    <a href="#">使用方法</a>
+                    <a href="#">关于</a>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+    <div class="mid">
+        <h2>挡水墙问题</h2>
+    </div>
+    <div class="main">
+    <div class="content_waterWall">
+            <div class="left_waterWall">
+                <img src="../src/water_wall2.jpg">
+
+                <form name="form1" method="GET" action="waterWall2.html">
+                    ρ1 =<input type="text" name="p1" id="p1" value="2.4"> (g/cm^3) <br> <br>
+                    ρ2 &nbsp;=<input type="text" name="p2" id="p2" value="1"> (g/cm^3) <br><br>
+                    b &nbsp; =<input type="text" name="b" id="b" value="3"> (m) <br> <br>
+                    <input type="submit" name="Submit" id="simgaX" value="计算σx"> &nbsp;
+                    <input type="submit" name="Submit" id="simgaY" value="计算σy"> &nbsp;
+                    <input type="submit" name="Submit" id="taoXY" value="计算τxy">
+                </form>
+            </div>
+            <div class="right_waterWall">
+                <div id="root"></div>
+                <div id="root1"></div>
+                <div id="root2"></div>
+            </div>
+    </div>
+    </div>
+</div>
+</body>
+<script>
+    // get form data from url
+    var request = {
+        QueryString : function(val) {
+            var uri = window.location.search;
+            var re = new RegExp("" +val+ "=([^&?]*)", "ig");
+            return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);
+        }
+    };
+    var p1 = request.QueryString("p1");
+    var p2 = request.QueryString("p2");
+    var b = request.QueryString("b");
+    p1 = parseFloat(p1);
+    p2 = parseFloat(p2);
+    b = parseFloat(b);
+
+    var btnX = request.QueryString("Submit");
+
+    var notice='';
+    var LineNumber;
+    LineNumber = SigmaXStr(2.4,1,3);
+
+
+    if((btnX==='%E8%AE%A1%E7%AE%97%CF%83x')){
+        notice='σx(kPa)';
+        LineNumber = SigmaXStr(p1,p2,b);
+
+        var aaa_blue=sigmaX_ratioBlue(p1,p2,b);
+        var points_blue =sigmaX_PointsBlue(aaa_blue);
+        var line_blue = points2Lines(points_blue);
+
+        var aaa_Green=sigmaX_ratioGreen(p1,p2,b);
+        var points_Green =sigmaX_PointsGreen(aaa_Green);
+        var line_Green = points2LinesGreen(points_Green);
+
+        document.getElementById("p1").value = p1;
+        document.getElementById("p2").value = p2;
+        document.getElementById("b").value = b;
+
+    }else if(btnX==='%E8%AE%A1%E7%AE%97%CF%83y'){
+        notice='σy(kPa)';
+        LineNumber = SigmaYStr(p2, b);
+
+        var aaa_blue_SY=sigmaY_ratioBlue(p2,b);
+        var points_blue_SY =sigmaY_PointsBlue(aaa_blue_SY);
+        var line_blue = points2Lines(points_blue_SY);
+
+        var aaa_Green_Y=sigmaY_ratioGreen(p1,p2,b);
+        var points_Green_Y =sigmaY_PointsGreen(aaa_Green_Y);
+        var line_Green = points2LinesGreen(points_Green_Y);
+
+        document.getElementById("p1").value = p1;
+        document.getElementById("p2").value = p2;
+        document.getElementById("b").value = b;
+    }else if(btnX==='%E8%AE%A1%E7%AE%97%CF%84xy'){
+        notice='τxy(kPa)';
+        LineNumber = taoXYStr(p2, b);
+
+        var aaa_blue_taoXY=taoXY_ratioBlue(p2,b);
+        var points_blue_taoXY =taoXY_PointsBlue(aaa_blue_taoXY);
+        var line_blue = points2Lines(points_blue_taoXY);
+
+        var aaa_Green_taoXY=taoXY_ratioGreen(p1,p2,b);
+        var points_Green_taoXY =taoXY_PointsGreen(aaa_Green_taoXY);
+        var line_Green = points2LinesGreen(points_Green_taoXY);
+
+        document.getElementById("p1").value = p1;
+        document.getElementById("p2").value = p2;
+        document.getElementById("b").value = b;
+    }else {
+        notice='σx(kPa)';
+
+        var aaa_blue=sigmaX_ratioBlue(2.4,1,3);
+        var points_blue =sigmaX_PointsBlue(aaa_blue);
+        var line_blue = points2Lines(points_blue);
+
+        var aaa_Green=sigmaX_ratioGreen(2.4,1,3);
+        var points_Green =sigmaX_PointsGreen(aaa_Green);
+        var line_Green = points2LinesGreen(points_Green);
+    }
+
+
+
+
+    // var twoDimension=new Array(5);
+    // if((FN!=null)&&(FS!=null)&&(M!=null)){
+    //     twoDimension = sigmaXFinal(FN,FS,M);
+    //
+    // }else {
+    //     FN=FS=M=0;
+    //     twoDimension = sigmaXFinal(FN,FS,M);
+    // }
+
+
+    functionPlot({
+        title: notice,
+        target: '#root',
+        xAxis: {domain: [-4,4], label: 'Y轴'},
+        yAxis: {domain: [-14,1], label: 'X轴'},
+        data: [
+            {fn: '-12', range: [-3,3], closed: true, color: 'gray'},
+
+            {
+                points: line_blue[0],
+                fnType: 'points',
+                graphType: 'polyline',
+                color: 'blue'
+            },
+            {
+                points: line_blue[1],
+                fnType: 'points',
+                graphType: 'polyline',
+                color: 'blue'
+            },
+            {
+                points: line_blue[2],
+                fnType: 'points',
+                graphType: 'polyline',
+                color: 'blue'
+            },
+            {
+                points: line_Green[0],
+                fnType: 'points',
+                graphType: 'polyline',
+                color: 'green'
+            },
+            {
+                points: line_Green[1],
+                fnType: 'points',
+                graphType: 'polyline',
+                color: 'green'
+            }
+
+            ],
+        annotations: [
+            {y: 0, text: '__________'+LineNumber[0]},
+            {y: -1, text: '__________'+LineNumber[1]},
+            {y: -2, text: '__________'+LineNumber[2]},
+            {y: -3, text: '__________'+LineNumber[3]},
+            {y: -4, text: '__________'+LineNumber[4]},
+            {y: -5, text: '__________'+LineNumber[5]},
+            {y: -6, text: '__________'+LineNumber[6]},
+            {y: -7, text: '__________'+LineNumber[7]},
+            {y: -8, text: '__________'+LineNumber[8]},
+            {y: -9, text: '__________'+LineNumber[9]},
+            {y: -10, text: '__________'+LineNumber[10]},
+            {y: -11, text: '__________'+LineNumber[11]},
+            {y: -12, text: '__________'+LineNumber[12]},
+
+            {x: 1}, {x: -2},{x: 1}, {x: -1},{x: 1}, {x: -1},{x: 1}, {x: 2},
+        ]
+    });
+    window.onbeforeunload = function () {
+        var scrollPos;
+        if (typeof window.pageYOffset != 'undefined') {
+            scrollPos = window.pageYOffset;
+        }
+        else if (typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat') {
+            scrollPos = document.documentElement.scrollTop;
+        }
+        else if (typeof document.body != 'undefined') {
+            scrollPos = document.body.scrollTop;
+        }
+        document.cookie = "scrollTop=" + scrollPos; //存储滚动条位置到cookies中
+    };
+
+
+    window.onload = function () {
+        if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
+            var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/); //cookies中不为空，则读取滚动条位置
+            document.documentElement.scrollTop = parseInt(arr[1]);
+            document.body.scrollTop = parseInt(arr[1]);
+        }
+    }
+
+
+</script>
+
+
+</html>

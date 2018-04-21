@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>弹性力学</title>
+    <meta charset="utf-8">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../components/d3/d3.min.js"></script>
+    <script src="../components/function-plot/dist/function-plot.js"></script>
+    <script src="../js_graph/beamTools.js"></script>
+</head>
+<body >
+<div>
+    <div class="menu">
+        <ul>
+            <li><a class="active" href="../index.html">首页</a></li>
+
+            <div class="dropdown">
+                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <div class="dropdown-content">
+                    <a href="beam1.html">悬臂梁受集中力分析</a>
+                    <a href="waterWall2.html">挡水墙问题</a>
+                    <a href="barrelForce3.html">圆筒受均布力</a>
+                    <a href="tunnelForce4.html">压力隧洞</a>
+                    <a href="beam5.html">梁受均布荷载</a>
+                    <a href="smallHole6.html">小孔口问题</a>
+                    <a href="planeForce7.html">平面应力与平面应变</a>
+                    <a href="boundaryCondition8.html">边界条件</a>
+                    <a href="wedge9.html">楔形体受重力和液体压力</a>
+                    <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
+                </div>
+            </div>
+                        <div class="dropdown">
+                <a href="#" class="dropbtn">帮助</a>
+                <div class="dropdown-content">
+                    <a href="#">使用方法</a>
+                    <a href="#">关于</a>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+    <div class="mid">
+        <h2>半平面体在边界上受竖向集中力</h2>
+    </div>
+    <div class="main">
+    <div class="content_halfPlane">
+            <div class="left_halfPlane">
+                <img src="../src/halfPlane10_1.jpg">
+                <img src="../src/halfPlane10_2.jpg">
+                <form name="form1" method="GET" action="beam1.html">
+                    F =<input type="text" name="F" id="FID">kN <br><br>
+                    <input type="submit" name="Submit" value="计算">
+                </form>
+            </div>
+            <div class="right_halfPlane">
+                <div id="root"></div>
+                <div id="root1"></div>
+            </div>
+    </div>
+    </div>
+</div>
+</body>
+<script>
+    var request = {
+        QueryString : function(val) {
+            var uri = window.location.search;
+            var re = new RegExp("" +val+ "=([^&?]*)", "ig");
+            return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);
+        }
+    };
+    var FN = request.QueryString("FN");
+    var FS = request.QueryString("FS");
+    var M = request.QueryString("M");
+
+    functionPlot({
+        title: 'σx(kPa)',
+        target: '#root',
+        xAxis: {domain: [0,16], label: 'X轴'},
+        yAxis: {domain: [-4,4], label: 'Y轴'},
+        data: [
+            {fn: '-2', range: [0,15], closed: true, color: 'gray'},
+            {fn: '2', range: [0,15], closed: true, color: 'gray'},
+
+            ],
+    });
+
+
+
+
+
+</script>
+
+
+</html>

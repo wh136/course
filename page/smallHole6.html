@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>弹性力学</title>
+    <meta charset="utf-8">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <script src="../components/sizeChoose/size1/d3.min.js"></script>
+    <script src="../components/sizeChoose/size1/fp.js"></script>
+
+    <script src="../js_graph/smallHoleTools.js"></script>
+</head>
+<body>
+<div>
+    <div class="menu">
+        <ul>
+            <li><a class="active" href="../index.html">首页</a></li>
+
+            <div class="dropdown">
+                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <div class="dropdown-content">
+                    <a href="beam1.html">悬臂梁受集中力分析</a>
+                    <a href="waterWall2.html">挡水墙问题</a>
+                    <a href="barrelForce3.html">圆筒受均布力</a>
+                    <a href="tunnelForce4.html">压力隧洞</a>
+                    <a href="beam5.html">梁受均布荷载</a>
+                    <a href="smallHole6.html">小孔口问题</a>
+                    <a href="planeForce7.html">平面应力与平面应变</a>
+                    <a href="boundaryCondition8.html">边界条件</a>
+                    <a href="wedge9.html">楔形体受重力和液体压力</a>
+                    <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">帮助</a>
+                <div class="dropdown-content">
+                    <a href="#">使用方法</a>
+                    <a href="#">关于</a>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+    <div class="mid">
+        <h2>小孔口问题</h2>
+    </div>
+    <div class="main">
+        <div class="content_smallHole">
+            <div class="left_smallHole">
+                <img src="../src/smallHole6.jpg">
+                <p>h=2m &nbsp; L=15m</p>
+                <form name="form1" method="GET" action="smallHole6.html">
+                    q1=<input type="text" name="Q1" id="Q1ID" value="1"> <br><br>
+                    q2=<input type="text" name="Q2" id="Q2ID" value="10"> <br><br>
+                    r&nbsp;&nbsp;&nbsp;=<input type="text" name="R" id="RID" value="0.1"> <br><br>
+                    <p>有小孔情况</p>
+                    <input type="submit" name="Submit" value="计算σρ"> &nbsp;
+                    <input type="submit" name="Submit" value="计算σΦ"> &nbsp;
+                    <input type="submit" name="Submit" value="计算τρΦ"> &nbsp;
+                    <p>无小孔情况</p>
+                    <input type="submit" name="Submit" value="计算σρ."> &nbsp;
+                    <input type="submit" name="Submit" value="计算σΦ."> &nbsp;
+                    <input type="submit" name="Submit" value="计算τρΦ."> &nbsp;
+
+                </form>
+            </div>
+            <div class="right_smallHole">
+                <div id="root"></div>
+            </div>
+            <div class="mid">
+                <div><p>以X正半轴逆时针方向开始，每条蓝色射线与同心圆交点的数值为：</p></div>
+                <div id="root1">
+                    <div id="item1"></div>
+                    <div id="item2"></div>
+                    <div id="item3"></div>
+                    <div id="item4"></div>
+                    <div id="item5"></div>
+                    <div id="item6"></div>
+                    <div id="item7"></div>
+                    <div id="item8"></div>
+                    <div id="item9"></div>
+                    <div id="item10"></div>
+                    <div id="item11"></div>
+                    <div id="item12"></div>
+                    <div id="item13"></div>
+                </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var request = {
+        QueryString: function (val) {
+            var uri = window.location.search;
+            var re = new RegExp("" + val + "=([^&?]*)", "ig");
+            return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
+        }
+    };
+    var Q1 = request.QueryString("Q1");
+    Q1 = parseFloat(Q1);
+    var Q2 = request.QueryString("Q2");
+    Q2 = parseFloat(Q2);
+    var R = request.QueryString("R");
+    R = parseFloat(R);  // Attention! No parseInt.  parseFloat instead.
+
+    var btnX = request.QueryString("Submit");
+    var notice = 'σρ(kPa)';
+
+    var circleNum = getCircleNumber(1,1,0.1,'yes','rou');
+    fillNumber2Div(circleNum);
+
+    var ratio = getRatio(1,1,0.1,'yes','rou');
+    var allLine = getGreenLinePoints(ratio);
+
+    var real = allLine[0];
+    var real1 = pointsConnect(real,0);
+    var real2 = pointsConnect(real,1);
+
+    var virtual = allLine[1];
+    var virtual1 = pointsConnect(virtual,0);
+    var virtual2 = pointsConnect(virtual,1);
+    var virtual3 = pointsConnect(virtual,2);
+    var virtual4 = pointsConnect(virtual,3);
+
+    switch (btnX) {
+        case '%E8%AE%A1%E7%AE%97%CF%83%CF%81':
+            circleNum = getCircleNumber(Q1,Q2,R,'yes','rou');
+            fillNumber2Div(circleNum);
+            ratio = getRatio(Q1,Q2,R,'yes','rou');
+            allLine = getGreenLinePoints(ratio);
+
+            real = allLine[0];
+            real1 = pointsConnect(real,0);
+            real2 = pointsConnect(real,1);
+
+            virtual = allLine[1];
+            virtual1 = pointsConnect(virtual,0);
+            virtual2 = pointsConnect(virtual,1);
+            virtual3 = pointsConnect(virtual,2);
+            virtual4 = pointsConnect(virtual,3);
+
+            document.getElementById("Q1ID").value = Q1;
+            document.getElementById("Q2ID").value = Q2;
+            document.getElementById("RID").value = R;
+
+            notice = 'σρ(kPa)';
+            break;
+        case '%E8%AE%A1%E7%AE%97%CF%83%CE%A6':
+            circleNum = getCircleNumber(Q1,Q2,R,'yes','fei');
+            fillNumber2Div(circleNum);
+            ratio = getRatio(Q1,Q2,R,'yes','fei');
+            allLine = getGreenLinePoints(ratio);
+
+            real = allLine[0];
+            real1 = pointsConnect(real,0);
+            real2 = pointsConnect(real,1);
+
+            virtual = allLine[1];
+            virtual1 = pointsConnect(virtual,0);
+            virtual2 = pointsConnect(virtual,1);
+            virtual3 = pointsConnect(virtual,2);
+            virtual4 = pointsConnect(virtual,3);
+
+            document.getElementById("Q1ID").value = Q1;
+            document.getElementById("Q2ID").value = Q2;
+            document.getElementById("RID").value = R;
+            notice = 'σΦ(kPa)';
+            break;
+        case '%E8%AE%A1%E7%AE%97%CF%84%CF%81%CE%A6':
+            circleNum = getCircleNumber(Q1,Q2,R,'yes','roufei');
+            fillNumber2Div(circleNum);
+
+            ratio = getRatio(0,0,0,'yes','fei');
+            allLine = getGreenLinePoints(ratio);
+
+            real = allLine[0];
+            real1 = pointsConnect(real,0);
+            real2 = pointsConnect(real,1);
+
+            virtual = allLine[1];
+            virtual1 = pointsConnect(virtual,0);
+            virtual2 = pointsConnect(virtual,1);
+            virtual3 = pointsConnect(virtual,2);
+            virtual4 = pointsConnect(virtual,3);
+
+            document.getElementById("Q1ID").value = Q1;
+            document.getElementById("Q2ID").value = Q2;
+            document.getElementById("RID").value = R;
+
+            notice = 'τρΦ(kPa)';
+            break;
+        case '%E8%AE%A1%E7%AE%97%CF%83%CF%81.':
+            circleNum = getCircleNumber(Q1,Q2,R,'no','rou');
+            fillNumber2Div(circleNum);
+            ratio = getRatio(Q1,Q2,R,'no','rou');
+            allLine = getGreenLinePoints(ratio);
+
+            real = allLine[0];
+            real1 = pointsConnect(real,0);
+            real2 = pointsConnect(real,1);
+
+            virtual = allLine[1];
+            virtual1 = pointsConnect(virtual,0);
+            virtual2 = pointsConnect(virtual,1);
+            virtual3 = pointsConnect(virtual,2);
+            virtual4 = pointsConnect(virtual,3);
+
+            document.getElementById("Q1ID").value = Q1;
+            document.getElementById("Q2ID").value = Q2;
+            document.getElementById("RID").value = R;
+
+            notice = 'σρ(kPa)';
+            break;
+        case '%E8%AE%A1%E7%AE%97%CF%83%CE%A6.':
+            circleNum = getCircleNumber(Q1,Q2,R,'no','fei');
+            fillNumber2Div(circleNum);
+            ratio = getRatio(Q1,Q2,R,'no','fei');
+            allLine = getGreenLinePoints(ratio);
+
+            real = allLine[0];
+            real1 = pointsConnect(real,0);
+            real2 = pointsConnect(real,1);
+
+            virtual = allLine[1];
+            virtual1 = pointsConnect(virtual,0);
+            virtual2 = pointsConnect(virtual,1);
+            virtual3 = pointsConnect(virtual,2);
+            virtual4 = pointsConnect(virtual,3);
+
+            document.getElementById("Q1ID").value = Q1;
+            document.getElementById("Q2ID").value = Q2;
+            document.getElementById("RID").value = R;
+            notice = 'σΦ(kPa)';
+            break;
+        case '%E8%AE%A1%E7%AE%97%CF%84%CF%81%CE%A6.':
+            circleNum = getCircleNumber(Q1,Q2,R,'no','roufei');
+            fillNumber2Div(circleNum);
+            ratio = getRatio(0,0,0,'no','roufei');
+            allLine = getGreenLinePoints(ratio);
+
+            real = allLine[0];
+            real1 = pointsConnect(real,0);
+            real2 = pointsConnect(real,1);
+
+            virtual = allLine[1];
+            virtual1 = pointsConnect(virtual,0);
+            virtual2 = pointsConnect(virtual,1);
+            virtual3 = pointsConnect(virtual,2);
+            virtual4 = pointsConnect(virtual,3);
+
+            document.getElementById("Q1ID").value = Q1;
+            document.getElementById("Q2ID").value = Q2;
+            document.getElementById("RID").value = R;
+
+            notice = 'τρΦ(kPa)';
+            break;
+
+    }
+
+    functionPlot({
+        title: notice,
+        target: '#root',
+        grid: true,
+        xAxis: {domain: [-12, 12]},
+        yAxis: {domain: [-12, 12]},
+        data: [
+            {fn: 'sqrt(4 - x * x)', color: 'black'}, {fn: '-sqrt(4 - x * x)', color: 'black'},
+            {fn: 'sqrt(9 - x * x)', color: 'black'}, {fn: '-sqrt(9 - x * x)', color: 'black'},
+            {fn: 'sqrt(16 - x * x)', color: 'black'}, {fn: '-sqrt(16 - x * x)', color: 'black'},
+            {fn: 'sqrt(25 - x * x)', color: 'black'}, {fn: '-sqrt(25 - x * x)', color: 'black'},
+            {fn: 'sqrt(36 - x * x)', color: 'black'}, {fn: '-sqrt(36 - x * x)', color: 'black'},
+            {fn: 'sqrt(49 - x * x)', color: 'black'}, {fn: '-sqrt(49 - x * x)', color: 'black'},
+            {fn: 'sqrt(64 - x * x)', color: 'black'}, {fn: '-sqrt(64 - x * x)', color: 'black'},
+            {fn: 'sqrt(81 - x * x)', color: 'black'}, {fn: '-sqrt(81 - x * x)', color: 'black'},
+            {fn: 'sqrt(100 - x * x)', color: 'black'}, {fn: '-sqrt(100 - x * x)', color: 'black'},
+
+            {points: real1, fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: real2, fnType: 'points', graphType: 'polyline', color: 'red'},
+
+            {points: virtual1, fnType: 'points', graphType: 'polyline', color: 'green'},
+            {points: virtual2, fnType: 'points', graphType: 'polyline', color: 'green'},
+            {points: virtual3, fnType: 'points', graphType: 'polyline', color: 'green'},
+            {points: virtual4, fnType: 'points', graphType: 'polyline', color: 'green'},
+
+            {points: [[0, 0], [8, 16]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: [[0, 0], [16, 9.23]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+
+            {points: [[0, 0], [-8, 16]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: [[0, 0], [-16, 9.23]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+
+            {points: [[0, 0], [-8, -16]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: [[0, 0], [-16, -9.23]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+
+            {points: [[0, 0], [8, -16]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: [[0, 0], [16, -9.23]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+
+            {points: [[0, 0], [16, 0]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: [[0, 0], [0, 16]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+
+            {points: [[0, 0], [0, -16]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: [[0, 0], [-16, 0]], fnType: 'points', graphType: 'polyline', color: 'blue'},
+
+        ],
+        annotations: [
+            {x: 1}, {x: 2}, {x: 3}, {x: 4}, {x: 6}, {x: 5}, {x: 7}, {x: 8}, {x: 9},
+            {x: 11}, {x: 12}, {x: 13}, {x: 14}, {x: 16},
+            {x: -1}, {x: -2}, {x: -3}, {x: -4}, {x: -6}, {x: -5}, {x: -7}, {x: -8}, {x: -9},
+            {x: -11}, {x: -12}, {x: -13}, {x: -14}, {x: -16},
+            {y: 1}, {y: 2}, {y: 3}, {y: 4}, {y: 6}, {y: 5}, {y: 7}, {y: 8}, {y: 9},
+            {y: 10}, {y: 11}, {y: 12}, {y: 13}, {y: 14}, {y: 15}, {y: 16},
+            {y: -1}, {y: -2}, {y: -3}, {y: -4}, {y: -6}, {y: -5}, {y: -7}, {y: -8}, {y: -9},
+            {y: -10}, {y: -11}, {y: -12}, {y: -13}, {y: -14}, {y: -15}, {y: -16},
+
+        ]
+
+
+    });
+
+
+    window.onbeforeunload = function () {
+        var scrollPos;
+        if (typeof window.pageYOffset != 'undefined') {
+            scrollPos = window.pageYOffset;
+        }
+        else if (typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat') {
+            scrollPos = document.documentElement.scrollTop;
+        }
+        else if (typeof document.body != 'undefined') {
+            scrollPos = document.body.scrollTop;
+        }
+        document.cookie = "scrollTop=" + scrollPos; //存储滚动条位置到cookies中
+    }
+
+
+    window.onload = function () {
+        if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
+            var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/); //cookies中不为空，则读取滚动条位置
+            document.documentElement.scrollTop = parseInt(arr[1]);
+            document.body.scrollTop = parseInt(arr[1]);
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>弹性力学</title>
+    <meta charset="utf-8">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <script src="../components/sizeChoose/size1/d3.min.js"></script>
+    <script src="../components/sizeChoose/size1/fp.js"></script>
+
+    <script src="../js_graph/barrelForceTools.js"></script>
+</head>
+<body >
+<div>
+    <div class="menu">
+        <ul>
+            <li><a class="active" href="../index.html">首页</a></li>
+
+            <div class="dropdown">
+                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <div class="dropdown-content">
+                    <a href="beam1.html">悬臂梁受集中力分析</a>
+                    <a href="waterWall2.html">挡水墙问题</a>
+                    <a href="barrelForce3.html">圆筒受均布力</a>
+                    <a href="tunnelForce4.html">压力隧洞</a>
+                    <a href="beam5.html">梁受均布荷载</a>
+                    <a href="smallHole6.html">小孔口问题</a>
+                    <a href="planeForce7.html">平面应力与平面应变</a>
+                    <a href="boundaryCondition8.html">边界条件</a>
+                    <a href="wedge9.html">楔形体受重力和液体压力</a>
+                    <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">帮助</a>
+                <div class="dropdown-content">
+                    <a href="#">使用方法</a>
+                    <a href="#">关于</a>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+    <div class="mid">
+        <h2>圆筒受均布力</h2>
+    </div>
+    <div class="main">
+        <div class="content_barrelForce">
+            <div class="left_barrelForce">
+                <img src="../src/barrelForce3.jpg">
+
+                <p>R=5m &nbsp; R=4m</p>
+                <form name="form1" method="GET" action="barrelForce3.html">
+                    q1 =<input type="text" name="Q1" id="Q1ID">KN <br> <br>
+                    q2 &nbsp;=<input type="text" name="Q2" id="Q2ID">KN <br> <br>
+                    <input type="submit" name="Submit" value="计算σρ"> &nbsp;
+                    <input type="submit" name="Submit" value="计算σΦ">
+                </form>
+            </div>
+            <div class="right_barrelForce">
+                <div id="root"></div>
+                <div id="root1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    // get form data from url
+    var request = {
+        QueryString: function (val) {
+            var uri = window.location.search;
+            var re = new RegExp("" + val + "=([^&?]*)", "ig");
+            return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
+        }
+    };
+    var Q1 = request.QueryString("Q1");
+    var Q2 = request.QueryString("Q2");
+    var btnX = request.QueryString("Submit");
+
+    Q1 = parseFloat(Q1);
+    Q2 = parseFloat(Q2);
+
+    var notice='';
+
+    var LineNumber_rou = sigmaRouArr(0,0);
+    var LineNumber = toFixArr(LineNumber_rou);
+
+    var rou= sigmaRouArr(0,0);
+    var ratio = getRatio(rou);
+    var line = getLine(ratio);
+
+
+
+    if((btnX==='%E8%AE%A1%E7%AE%97%CF%83%CF%81')&&(Q1!==null)){
+        var LineNumber_rou = sigmaRouArr(Q1,Q2);
+        var LineNumber = toFixArr(LineNumber_rou);
+
+        var rou= sigmaRouArr(Q1,Q2);
+        var ratio = getRatio(rou);
+        var line = getLine(ratio);
+
+        notice='σρ(kPa)';
+        document.getElementById("Q1ID").value = Q1;
+        document.getElementById("Q2ID").value = Q2;
+    }else if((btnX==='%E8%AE%A1%E7%AE%97%CF%83%CE%A6')){
+        var LineNumber_fei = sigmaFeiArr(Q1,Q2);
+        var LineNumber = toFixArr(LineNumber_fei);
+
+        var fei= sigmaFeiArr(Q1,Q2);
+        var ratio = getRatio(fei);
+        var line = getLine(ratio);
+
+        notice='σΦ(kPa)';
+        document.getElementById("Q1ID").value = Q1;
+        document.getElementById("Q2ID").value = Q2;
+    }else {
+        notice='σρ(kPa)';
+    }
+
+
+
+    functionPlot({
+        target: '#root',
+        title: notice,
+        yAxis: {domain: [-16, 16]},
+        xAxis: {domain: [-16, 16]},
+        data: [
+            {fn: 'sqrt(196 - x * x)', color: 'blue'},
+            {fn: '-sqrt(196 - x * x)', color: 'blue'},
+            {fn: 'sqrt(16 - x * x)', color: 'blue'},
+            {fn: '-sqrt(16 - x * x)', color: 'blue'},
+            {points: [[0, 4], [line[0], 4]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 5], [line[1], 5]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 6], [line[2], 6]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 7], [line[3], 7]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 8], [line[4], 8]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 9], [line[5], 9]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 10], [line[6], 10]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 11], [line[7], 11]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 12], [line[8], 12]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 13], [line[9], 13]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 14], [line[10], 14]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 15], [line[11], 15]], fnType: 'points', graphType: 'polyline',color:'red'},
+
+            {points: [[line[0], 4], [line[1], 5]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[1], 5], [line[2], 6]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[2], 6], [line[3], 7]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[3], 7], [line[4], 8]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[4], 8], [line[5], 9]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[5], 9], [line[6], 10]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[6], 10], [line[7], 11]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[7], 11], [line[8], 12]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[8], 12], [line[9], 13]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[9], 13], [line[10], 14]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[10], 14], [line[11], 15]], fnType: 'points', graphType: 'polyline',color:'red'},
+
+        ],
+        annotations: [
+            {y: 4, text: '_____________________________________________________'+LineNumber[0]},
+            {y: 5, text: '_____________________________________________________'+LineNumber[1]},
+            {y: 6, text: '_____________________________________________________'+LineNumber[2]},
+            {y: 7, text: '_____________________________________________________'+LineNumber[3]},
+            {y: 8, text: '_____________________________________________________'+LineNumber[4]},
+            {y: 9, text: '_____________________________________________________'+LineNumber[5]},
+            {y: 10, text: '_____________________________________________________'+LineNumber[6]},
+            {y: 11, text: '_____________________________________________________'+LineNumber[7]},
+            {y: 12, text: '_____________________________________________________'+LineNumber[8]},
+            {y: 13, text: '_____________________________________________________'+LineNumber[9]},
+            {y: 14, text: '_____________________________________________________'+LineNumber[10]}
+
+        ]
+    });
+
+    window.onbeforeunload = function () {
+        var scrollPos;
+        if (typeof window.pageYOffset != 'undefined') {
+            scrollPos = window.pageYOffset;
+        }
+        else if (typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat') {
+            scrollPos = document.documentElement.scrollTop;
+        }
+        else if (typeof document.body != 'undefined') {
+            scrollPos = document.body.scrollTop;
+        }
+        document.cookie = "scrollTop=" + scrollPos; //存储滚动条位置到cookies中
+    };
+
+
+    window.onload = function () {
+        if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
+            var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/); //cookies中不为空，则读取滚动条位置
+            document.documentElement.scrollTop = parseInt(arr[1]);
+            document.body.scrollTop = parseInt(arr[1]);
+        }
+    }
+
+</script>
+
+
+</html>
