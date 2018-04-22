@@ -32,6 +32,9 @@
                 </div>
             </div>
             <div class="dropdown">
+                <a href="../plot3D/3dPlot.html" class="dropbtn">3D绘图</a>
+            </div>
+            <div class="dropdown">
                 <a href="#" class="dropbtn">帮助</a>
                 <div class="dropdown-content">
                     <a href="UsageMethod.html">关于</a>
@@ -82,7 +85,7 @@
                     <div id="item11"></div>
                     <div id="item12"></div>
                     <div id="item13"></div>
-                </table>
+                    </table>
                 </div>
             </div>
 
@@ -108,38 +111,38 @@
     var btnX = request.QueryString("Submit");
     var notice = 'σρ(kPa)';
 
-    var circleNum = getCircleNumber(1,1,0.1,'yes','rou');
+    var circleNum = getCircleNumber(1, 1, 0.1, 'yes', 'rou');
     fillNumber2Div(circleNum);
 
-    var ratio = getRatio(1,1,0.1,'yes','rou');
+    var ratio = getRatio(1, 1, 0.1, 'yes', 'rou');
     var allLine = getGreenLinePoints(ratio);
 
     var real = allLine[0];
-    var real1 = pointsConnect(real,0);
-    var real2 = pointsConnect(real,1);
+    var real1 = pointsConnect(real, 0);
+    var real2 = pointsConnect(real, 1);
 
     var virtual = allLine[1];
-    var virtual1 = pointsConnect(virtual,0);
-    var virtual2 = pointsConnect(virtual,1);
-    var virtual3 = pointsConnect(virtual,2);
-    var virtual4 = pointsConnect(virtual,3);
+    var virtual1 = pointsConnect(virtual, 0);
+    var virtual2 = pointsConnect(virtual, 1);
+    var virtual3 = pointsConnect(virtual, 2);
+    var virtual4 = pointsConnect(virtual, 3);
 
     switch (btnX) {
         case '%E8%AE%A1%E7%AE%97%CF%83%CF%81':
-            circleNum = getCircleNumber(Q1,Q2,R,'yes','rou');
+            circleNum = getCircleNumber(Q1, Q2, R, 'yes', 'rou');
             fillNumber2Div(circleNum);
-            ratio = getRatio(Q1,Q2,R,'yes','rou');
+            ratio = getRatio(Q1, Q2, R, 'yes', 'rou');
             allLine = getGreenLinePoints(ratio);
 
             real = allLine[0];
-            real1 = pointsConnect(real,0);
-            real2 = pointsConnect(real,1);
+            real1 = pointsConnect(real, 0);
+            real2 = pointsConnect(real, 1);
 
             virtual = allLine[1];
-            virtual1 = pointsConnect(virtual,0);
-            virtual2 = pointsConnect(virtual,1);
-            virtual3 = pointsConnect(virtual,2);
-            virtual4 = pointsConnect(virtual,3);
+            virtual1 = pointsConnect(virtual, 0);
+            virtual2 = pointsConnect(virtual, 1);
+            virtual3 = pointsConnect(virtual, 2);
+            virtual4 = pointsConnect(virtual, 3);
 
             document.getElementById("Q1ID").value = Q1;
             document.getElementById("Q2ID").value = Q2;
@@ -148,20 +151,20 @@
             notice = 'σρ(kPa)';
             break;
         case '%E8%AE%A1%E7%AE%97%CF%83%CE%A6':
-            circleNum = getCircleNumber(Q1,Q2,R,'yes','fei');
+            circleNum = getCircleNumber(Q1, Q2, R, 'yes', 'fei');
             fillNumber2Div(circleNum);
-            ratio = getRatio(Q1,Q2,R,'yes','fei');
+            ratio = getRatio(Q1, Q2, R, 'yes', 'fei');
             allLine = getGreenLinePoints(ratio);
 
             real = allLine[0];
-            real1 = pointsConnect(real,0);
-            real2 = pointsConnect(real,1);
+            real1 = pointsConnect(real, 0);
+            real2 = pointsConnect(real, 1);
 
             virtual = allLine[1];
-            virtual1 = pointsConnect(virtual,0);
-            virtual2 = pointsConnect(virtual,1);
-            virtual3 = pointsConnect(virtual,2);
-            virtual4 = pointsConnect(virtual,3);
+            virtual1 = pointsConnect(virtual, 0);
+            virtual2 = pointsConnect(virtual, 1);
+            virtual3 = pointsConnect(virtual, 2);
+            virtual4 = pointsConnect(virtual, 3);
 
             document.getElementById("Q1ID").value = Q1;
             document.getElementById("Q2ID").value = Q2;
@@ -169,21 +172,21 @@
             notice = 'σΦ(kPa)';
             break;
         case '%E8%AE%A1%E7%AE%97%CF%84%CF%81%CE%A6':
-            circleNum = getCircleNumber(Q1,Q2,R,'yes','roufei');
+            circleNum = getCircleNumber(Q1, Q2, R, 'yes', 'roufei');
             fillNumber2Div(circleNum);
 
-            ratio = getRatio(0,0,0,'yes','fei');
+            ratio = getRatio(0, 0, 0, 'yes', 'fei');
             allLine = getGreenLinePoints(ratio);
 
             real = allLine[0];
-            real1 = pointsConnect(real,0);
-            real2 = pointsConnect(real,1);
+            real1 = pointsConnect(real, 0);
+            real2 = pointsConnect(real, 1);
 
             virtual = allLine[1];
-            virtual1 = pointsConnect(virtual,0);
-            virtual2 = pointsConnect(virtual,1);
-            virtual3 = pointsConnect(virtual,2);
-            virtual4 = pointsConnect(virtual,3);
+            virtual1 = pointsConnect(virtual, 0);
+            virtual2 = pointsConnect(virtual, 1);
+            virtual3 = pointsConnect(virtual, 2);
+            virtual4 = pointsConnect(virtual, 3);
 
             document.getElementById("Q1ID").value = Q1;
             document.getElementById("Q2ID").value = Q2;
@@ -192,20 +195,20 @@
             notice = 'τρΦ(kPa)';
             break;
         case '%E8%AE%A1%E7%AE%97%CF%83%CF%81.':
-            circleNum = getCircleNumber(Q1,Q2,R,'no','rou');
+            circleNum = getCircleNumber(Q1, Q2, R, 'no', 'rou');
             fillNumber2Div(circleNum);
-            ratio = getRatio(Q1,Q2,R,'no','rou');
+            ratio = getRatio(Q1, Q2, R, 'no', 'rou');
             allLine = getGreenLinePoints(ratio);
 
             real = allLine[0];
-            real1 = pointsConnect(real,0);
-            real2 = pointsConnect(real,1);
+            real1 = pointsConnect(real, 0);
+            real2 = pointsConnect(real, 1);
 
             virtual = allLine[1];
-            virtual1 = pointsConnect(virtual,0);
-            virtual2 = pointsConnect(virtual,1);
-            virtual3 = pointsConnect(virtual,2);
-            virtual4 = pointsConnect(virtual,3);
+            virtual1 = pointsConnect(virtual, 0);
+            virtual2 = pointsConnect(virtual, 1);
+            virtual3 = pointsConnect(virtual, 2);
+            virtual4 = pointsConnect(virtual, 3);
 
             document.getElementById("Q1ID").value = Q1;
             document.getElementById("Q2ID").value = Q2;
@@ -214,20 +217,20 @@
             notice = 'σρ(kPa)';
             break;
         case '%E8%AE%A1%E7%AE%97%CF%83%CE%A6.':
-            circleNum = getCircleNumber(Q1,Q2,R,'no','fei');
+            circleNum = getCircleNumber(Q1, Q2, R, 'no', 'fei');
             fillNumber2Div(circleNum);
-            ratio = getRatio(Q1,Q2,R,'no','fei');
+            ratio = getRatio(Q1, Q2, R, 'no', 'fei');
             allLine = getGreenLinePoints(ratio);
 
             real = allLine[0];
-            real1 = pointsConnect(real,0);
-            real2 = pointsConnect(real,1);
+            real1 = pointsConnect(real, 0);
+            real2 = pointsConnect(real, 1);
 
             virtual = allLine[1];
-            virtual1 = pointsConnect(virtual,0);
-            virtual2 = pointsConnect(virtual,1);
-            virtual3 = pointsConnect(virtual,2);
-            virtual4 = pointsConnect(virtual,3);
+            virtual1 = pointsConnect(virtual, 0);
+            virtual2 = pointsConnect(virtual, 1);
+            virtual3 = pointsConnect(virtual, 2);
+            virtual4 = pointsConnect(virtual, 3);
 
             document.getElementById("Q1ID").value = Q1;
             document.getElementById("Q2ID").value = Q2;
@@ -235,20 +238,20 @@
             notice = 'σΦ(kPa)';
             break;
         case '%E8%AE%A1%E7%AE%97%CF%84%CF%81%CE%A6.':
-            circleNum = getCircleNumber(Q1,Q2,R,'no','roufei');
+            circleNum = getCircleNumber(Q1, Q2, R, 'no', 'roufei');
             fillNumber2Div(circleNum);
-            ratio = getRatio(0,0,0,'no','roufei');
+            ratio = getRatio(0, 0, 0, 'no', 'roufei');
             allLine = getGreenLinePoints(ratio);
 
             real = allLine[0];
-            real1 = pointsConnect(real,0);
-            real2 = pointsConnect(real,1);
+            real1 = pointsConnect(real, 0);
+            real2 = pointsConnect(real, 1);
 
             virtual = allLine[1];
-            virtual1 = pointsConnect(virtual,0);
-            virtual2 = pointsConnect(virtual,1);
-            virtual3 = pointsConnect(virtual,2);
-            virtual4 = pointsConnect(virtual,3);
+            virtual1 = pointsConnect(virtual, 0);
+            virtual2 = pointsConnect(virtual, 1);
+            virtual3 = pointsConnect(virtual, 2);
+            virtual4 = pointsConnect(virtual, 3);
 
             document.getElementById("Q1ID").value = Q1;
             document.getElementById("Q2ID").value = Q2;

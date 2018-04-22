@@ -10,7 +10,7 @@
 
     <script src="../js_graph/barrelForceTools.js"></script>
 </head>
-<body >
+<body>
 <div>
     <div class="menu">
         <ul>
@@ -30,6 +30,9 @@
                     <a href="wedge9.html">楔形体受重力和液体压力</a>
                     <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
                 </div>
+            </div>
+            <div class="dropdown">
+                <a href="../plot3D/3dPlot.html" class="dropbtn">3D绘图</a>
             </div>
             <div class="dropdown">
                 <a href="#" class="dropbtn">帮助</a>
@@ -80,43 +83,41 @@
     Q1 = parseFloat(Q1);
     Q2 = parseFloat(Q2);
 
-    var notice='';
+    var notice = '';
 
-    var LineNumber_rou = sigmaRouArr(0,0);
+    var LineNumber_rou = sigmaRouArr(0, 0);
     var LineNumber = toFixArr(LineNumber_rou);
 
-    var rou= sigmaRouArr(0,0);
+    var rou = sigmaRouArr(0, 0);
     var ratio = getRatio(rou);
     var line = getLine(ratio);
 
 
-
-    if((btnX==='%E8%AE%A1%E7%AE%97%CF%83%CF%81')&&(Q1!==null)){
-        var LineNumber_rou = sigmaRouArr(Q1,Q2);
+    if ((btnX === '%E8%AE%A1%E7%AE%97%CF%83%CF%81') && (Q1 !== null)) {
+        var LineNumber_rou = sigmaRouArr(Q1, Q2);
         var LineNumber = toFixArr(LineNumber_rou);
 
-        var rou= sigmaRouArr(Q1,Q2);
+        var rou = sigmaRouArr(Q1, Q2);
         var ratio = getRatio(rou);
         var line = getLine(ratio);
 
-        notice='σρ(kPa)';
+        notice = 'σρ(kPa)';
         document.getElementById("Q1ID").value = Q1;
         document.getElementById("Q2ID").value = Q2;
-    }else if((btnX==='%E8%AE%A1%E7%AE%97%CF%83%CE%A6')){
-        var LineNumber_fei = sigmaFeiArr(Q1,Q2);
+    } else if ((btnX === '%E8%AE%A1%E7%AE%97%CF%83%CE%A6')) {
+        var LineNumber_fei = sigmaFeiArr(Q1, Q2);
         var LineNumber = toFixArr(LineNumber_fei);
 
-        var fei= sigmaFeiArr(Q1,Q2);
+        var fei = sigmaFeiArr(Q1, Q2);
         var ratio = getRatio(fei);
         var line = getLine(ratio);
 
-        notice='σΦ(kPa)';
+        notice = 'σΦ(kPa)';
         document.getElementById("Q1ID").value = Q1;
         document.getElementById("Q2ID").value = Q2;
-    }else {
-        notice='σρ(kPa)';
+    } else {
+        notice = 'σρ(kPa)';
     }
-
 
 
     functionPlot({
@@ -129,44 +130,44 @@
             {fn: '-sqrt(196 - x * x)', color: 'blue'},
             {fn: 'sqrt(16 - x * x)', color: 'blue'},
             {fn: '-sqrt(16 - x * x)', color: 'blue'},
-            {points: [[0, 4], [line[0], 4]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 5], [line[1], 5]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 6], [line[2], 6]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 7], [line[3], 7]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 8], [line[4], 8]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 9], [line[5], 9]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 10], [line[6], 10]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 11], [line[7], 11]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 12], [line[8], 12]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 13], [line[9], 13]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 14], [line[10], 14]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[0, 15], [line[11], 15]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[0, 4], [line[0], 4]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 5], [line[1], 5]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 6], [line[2], 6]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 7], [line[3], 7]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 8], [line[4], 8]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 9], [line[5], 9]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 10], [line[6], 10]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 11], [line[7], 11]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 12], [line[8], 12]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 13], [line[9], 13]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 14], [line[10], 14]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[0, 15], [line[11], 15]], fnType: 'points', graphType: 'polyline', color: 'red'},
 
-            {points: [[line[0], 4], [line[1], 5]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[1], 5], [line[2], 6]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[2], 6], [line[3], 7]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[3], 7], [line[4], 8]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[4], 8], [line[5], 9]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[5], 9], [line[6], 10]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[6], 10], [line[7], 11]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[7], 11], [line[8], 12]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[8], 12], [line[9], 13]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[9], 13], [line[10], 14]], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: [[line[10], 14], [line[11], 15]], fnType: 'points', graphType: 'polyline',color:'red'},
+            {points: [[line[0], 4], [line[1], 5]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[1], 5], [line[2], 6]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[2], 6], [line[3], 7]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[3], 7], [line[4], 8]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[4], 8], [line[5], 9]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[5], 9], [line[6], 10]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[6], 10], [line[7], 11]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[7], 11], [line[8], 12]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[8], 12], [line[9], 13]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[9], 13], [line[10], 14]], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: [[line[10], 14], [line[11], 15]], fnType: 'points', graphType: 'polyline', color: 'red'},
 
         ],
         annotations: [
-            {y: 4, text: '_____________________________________________________'+LineNumber[0]},
-            {y: 5, text: '_____________________________________________________'+LineNumber[1]},
-            {y: 6, text: '_____________________________________________________'+LineNumber[2]},
-            {y: 7, text: '_____________________________________________________'+LineNumber[3]},
-            {y: 8, text: '_____________________________________________________'+LineNumber[4]},
-            {y: 9, text: '_____________________________________________________'+LineNumber[5]},
-            {y: 10, text: '_____________________________________________________'+LineNumber[6]},
-            {y: 11, text: '_____________________________________________________'+LineNumber[7]},
-            {y: 12, text: '_____________________________________________________'+LineNumber[8]},
-            {y: 13, text: '_____________________________________________________'+LineNumber[9]},
-            {y: 14, text: '_____________________________________________________'+LineNumber[10]}
+            {y: 4, text: '_____________________________________________________' + LineNumber[0]},
+            {y: 5, text: '_____________________________________________________' + LineNumber[1]},
+            {y: 6, text: '_____________________________________________________' + LineNumber[2]},
+            {y: 7, text: '_____________________________________________________' + LineNumber[3]},
+            {y: 8, text: '_____________________________________________________' + LineNumber[4]},
+            {y: 9, text: '_____________________________________________________' + LineNumber[5]},
+            {y: 10, text: '_____________________________________________________' + LineNumber[6]},
+            {y: 11, text: '_____________________________________________________' + LineNumber[7]},
+            {y: 12, text: '_____________________________________________________' + LineNumber[8]},
+            {y: 13, text: '_____________________________________________________' + LineNumber[9]},
+            {y: 14, text: '_____________________________________________________' + LineNumber[10]}
 
         ]
     });

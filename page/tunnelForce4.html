@@ -10,7 +10,7 @@
 
     <script src="../js_graph/tunnelForceTools.js"></script>
 </head>
-<body >
+<body>
 <div>
     <div class="menu">
         <ul>
@@ -31,7 +31,10 @@
                     <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
                 </div>
             </div>
-                        <div class="dropdown">
+            <div class="dropdown">
+                <a href="../plot3D/3dPlot.html" class="dropbtn">3D绘图</a>
+            </div>
+            <div class="dropdown">
                 <a href="#" class="dropbtn">帮助</a>
                 <div class="dropdown-content">
                     <a href="UsageMethod.html">关于</a>
@@ -44,10 +47,10 @@
         <h2>压力隧洞</h2>
     </div>
     <div class="main">
-    <div class="content_tunnelForce">
+        <div class="content_tunnelForce">
             <div class="left_tunnelForce">
                 <img src="../src/tunnelForce4.jpg">
-                <p>外径R=10m  &nbsp; 内径r=8m</p>
+                <p>外径R=10m &nbsp; 内径r=8m</p>
                 <form name="form1" method="GET" action="tunnelForce4.html">
                     圆筒弹性常数E=<input type="text" name="E1" id="E1ID" value="2800"> <br> <br>
                     &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -69,17 +72,17 @@
                 <div id="root"></div>
                 <div id="root1"></div>
             </div>
-    </div>
+        </div>
     </div>
 </div>
 </body>
 <script>
     // get form data from url
     var request = {
-        QueryString : function(val) {
+        QueryString: function (val) {
             var uri = window.location.search;
-            var re = new RegExp("" +val+ "=([^&?]*)", "ig");
-            return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);
+            var re = new RegExp("" + val + "=([^&?]*)", "ig");
+            return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
         }
     };
     var E1 = request.QueryString("E1");
@@ -93,13 +96,13 @@
     U2 = parseFloat(U2);
     Q = parseFloat(Q);
 
-    var ratio = getRatio(2800,0.2,120,0.3,100);
+    var ratio = getRatio(2800, 0.2, 120, 0.3, 100);
     var pa = pointsArr(ratio);
     var line = makeLineArr(pa);
 
     var y_text1 = (-max / 3).toFixed(2);
-    var y_text2 = (-2*max / 3).toFixed(2);
-    var y_text3 = (-3*max / 3).toFixed(2);
+    var y_text2 = (-2 * max / 3).toFixed(2);
+    var y_text3 = (-3 * max / 3).toFixed(2);
 
     var point = line[0];
     var xdist_1 = point[19][0];
@@ -108,15 +111,15 @@
     var y_range = temp[1][0].toFixed(2);
 
     var btnX = request.QueryString("Submit");
-    var notice='σρ(kPa)';
+    var notice = 'σρ(kPa)';
 
-    if((btnX==='%E8%AE%A1%E7%AE%97%CF%83%CF%81')&&(E1!==null)){
+    if ((btnX === '%E8%AE%A1%E7%AE%97%CF%83%CF%81') && (E1 !== null)) {
         var ratio = getRatio(E1, U1, E2, U2, Q);
         var pa = pointsArr(ratio);
         var line = makeLineArr(pa);
         var y_text1 = (-max / 3).toFixed(2);
-        var y_text2 = (-2*max / 3).toFixed(2);
-        var y_text3 = (-3*max / 3).toFixed(2);
+        var y_text2 = (-2 * max / 3).toFixed(2);
+        var y_text3 = (-3 * max / 3).toFixed(2);
         var point = line[0];
         var xdist_1 = point[19][0];
         var x_range = temp[0][10].toFixed(2);
@@ -128,13 +131,13 @@
         document.getElementById("U2ID").value = U2;
         document.getElementById("QID").value = Q;
         notice = 'σρ(kPa)';
-    }else if(btnX==='%E8%AE%A1%E7%AE%97%CF%83%CE%A6'){
+    } else if (btnX === '%E8%AE%A1%E7%AE%97%CF%83%CE%A6') {
         var ratio = getRatio_fei(E1, U1, E2, U2, Q);
         var pa = pointsArr(ratio);
         var line = makeLineArr(pa);
         var y_text1 = (-max / 3).toFixed(2);
-        var y_text2 = (-2*max / 3).toFixed(2);
-        var y_text3 = (-3*max / 3).toFixed(2);
+        var y_text2 = (-2 * max / 3).toFixed(2);
+        var y_text3 = (-3 * max / 3).toFixed(2);
         var point = line[0];
         var xdist_1 = point[19][0];
         var x_range = temp[0][10].toFixed(2);
@@ -147,7 +150,7 @@
         document.getElementById("QID").value = Q;
 
         notice = 'σΦ(kPa)';
-    }else {
+    } else {
         notice = 'σρ(kPa)';
     }
 
@@ -159,10 +162,10 @@
         xAxis: {domain: [0, 18]},
         grid: true,
         data: [
-            { fn: 'sqrt(16 - x * x)' ,color: 'blue'},
-            { fn: '-sqrt(16 - x * x)',color: 'blue' },
-            {points: line[0], fnType: 'points', graphType: 'polyline',color:'red'},
-            {points: line[1], fnType: 'points', graphType: 'polyline',color:'red'},
+            {fn: 'sqrt(16 - x * x)', color: 'blue'},
+            {fn: '-sqrt(16 - x * x)', color: 'blue'},
+            {points: line[0], fnType: 'points', graphType: 'polyline', color: 'red'},
+            {points: line[1], fnType: 'points', graphType: 'polyline', color: 'red'},
         ],
         annotations: [
             {y: 0, text: '______________________10_____________________20______________________30'},
@@ -170,8 +173,8 @@
             {y: 4, text: y_text2},
             {y: 6, text: y_text3},
 
-            {x: xdist_1}, {x: x_range, text: '-'+x_range},
-            {y: ydist_1, text: '-'+y_range}
+            {x: xdist_1}, {x: x_range, text: '-' + x_range},
+            {y: ydist_1, text: '-' + y_range}
 
         ]
 
@@ -198,9 +201,6 @@
             document.body.scrollTop = parseInt(arr[1]);
         }
     }
-
-
-
 
 
 </script>

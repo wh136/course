@@ -8,7 +8,7 @@
     <script src="../components/function-plot/dist/function-plot.js"></script>
     <script src="../js_graph/beamTools.js"></script>
 </head>
-<body >
+<body>
 <div>
     <div class="menu">
         <ul>
@@ -29,7 +29,11 @@
                     <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
                 </div>
             </div>
-                        <div class="dropdown">
+            <div class="dropdown">
+                <a href="../plot3D/3dPlot.html" class="dropbtn">3D绘图</a>
+            </div>
+
+            <div class="dropdown">
                 <a href="#" class="dropbtn">帮助</a>
                 <div class="dropdown-content">
                     <a href="UsageMethod.html">关于</a>
@@ -42,7 +46,7 @@
         <h2>楔形体受重力和液体压力</h2>
     </div>
     <div class="main">
-    <div class="content_wedge">
+        <div class="content_wedge">
             <div class="left_wedge">
                 <img src="../src/wedge9-1.jpg">
                 <img src="../src/wedge9_2.JPG">
@@ -60,16 +64,16 @@
                 <div id="root"></div>
                 <div id="root1"></div>
             </div>
-    </div>
+        </div>
     </div>
 </div>
 </body>
 <script>
     var request = {
-        QueryString : function(val) {
+        QueryString: function (val) {
             var uri = window.location.search;
-            var re = new RegExp("" +val+ "=([^&?]*)", "ig");
-            return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);
+            var re = new RegExp("" + val + "=([^&?]*)", "ig");
+            return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
         }
     };
     var P1 = request.QueryString("P1");
@@ -82,31 +86,29 @@
     var notice = 'σx(kPa)';
 
 
-    switch (btnX)
-    {
+    switch (btnX) {
         case '%E8%AE%A1%E7%AE%97%CF%83x':
 
-            notice='σx(kPa)';
+            notice = 'σx(kPa)';
             break;
         case '%E8%AE%A1%E7%AE%97%CF%83y':
 
-            notice='σy(kPa)';
+            notice = 'σy(kPa)';
             break;
         case '%E8%AE%A1%E7%AE%97%CF%84xy':
 
-            notice='τxy(kPa)';
+            notice = 'τxy(kPa)';
             break;
     }
-
 
 
     functionPlot({
         title: notice,
         target: '#root',
         data: [
-            {fn: '-2', range: [0,15], closed: true, color: 'gray'},
-            {fn: '2', range: [0,15], closed: true, color: 'gray'},
-            ],
+            {fn: '-2', range: [0, 15], closed: true, color: 'gray'},
+            {fn: '2', range: [0, 15], closed: true, color: 'gray'},
+        ],
 
     });
 

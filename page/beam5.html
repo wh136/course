@@ -30,6 +30,9 @@
                 </div>
             </div>
             <div class="dropdown">
+                <a href="../plot3D/3dPlot.html" class="dropbtn">3D绘图</a>
+            </div>
+            <div class="dropdown">
                 <a href="#" class="dropbtn">帮助</a>
                 <div class="dropdown-content">
                     <a href="UsageMethod.html">关于</a>
@@ -73,45 +76,45 @@
     var Q = request.QueryString("Q");
     Q = parseFloat(Q);
     var btnX = request.QueryString("Submit");
-    var notice='σx(kPa)';
+    var notice = 'σx(kPa)';
 
 
-    var rowNumber = getRowNumber(1,'sigmaX');
+    var rowNumber = getRowNumber(1, 'sigmaX');
     var ratio = getRatio(1, 'blue', 'sigmaX');
     var blueLine = getBlueLine(ratio);
     var ratio_green = getRatio(1, 'green', 'sigmaX');
     var greenLine = getGreenLine(ratio_green);
 
-    if((btnX==='%E8%AE%A1%E7%AE%97%CF%83x')&&(Q!==null)) {
+    if ((btnX === '%E8%AE%A1%E7%AE%97%CF%83x') && (Q !== null)) {
 
-        rowNumber = getRowNumber(Q,'sigmaX');
-        notice='σx(kPa)';
+        rowNumber = getRowNumber(Q, 'sigmaX');
+        notice = 'σx(kPa)';
         var ratio = getRatio(Q, 'blue', 'sigmaX');
         var blueLine = getBlueLine(ratio);
         var ratio_green = getRatio(Q, 'green', 'sigmaX');
         var greenLine = getGreenLine(ratio_green);
         document.getElementById("QID").value = Q;
 
-    }else if(btnX==='%E8%AE%A1%E7%AE%97%CF%83y'){
-        var rowNumber = getRowNumber(Q,'sigmaY');
-        notice='σy(kPa)';
+    } else if (btnX === '%E8%AE%A1%E7%AE%97%CF%83y') {
+        var rowNumber = getRowNumber(Q, 'sigmaY');
+        notice = 'σy(kPa)';
         var ratio = getRatio(Q, 'blue', 'sigmaY');
         var blueLine = getBlueLine(ratio);
         var ratio_green = getRatio(Q, 'green', 'sigmaY');
         var greenLine = getGreenLine(ratio_green);
         document.getElementById("QID").value = Q;
 
-    }else if(btnX==='%E8%AE%A1%E7%AE%97%CF%84xy'){
-        var rowNumber = getRowNumber(Q,'taoXY');
-        notice='τxy(kPa)';
+    } else if (btnX === '%E8%AE%A1%E7%AE%97%CF%84xy') {
+        var rowNumber = getRowNumber(Q, 'taoXY');
+        notice = 'τxy(kPa)';
         var ratio = getRatio(Q, 'blue', 'taoXY');
         var blueLine = getBlueLine(ratio);
         var ratio_green = getRatio(Q, 'green', 'taoXY');
         var greenLine = getGreenLine(ratio_green);
         document.getElementById("QID").value = Q;
 
-    }else {
-        notice='σx(kPa)';
+    } else {
+        notice = 'σx(kPa)';
     }
 
 
@@ -124,12 +127,12 @@
         data: [
             {fn: '-3', range: [-6, 6], closed: true, color: 'gray'},
             {fn: '3', range: [-6, 6], closed: true, color: 'gray'},
-            {points: blueLine[0], fnType: 'points', graphType: 'polyline',color:'blue'},
-            {points: blueLine[1], fnType: 'points', graphType: 'polyline',color:'blue'},
-            {points: blueLine[2], fnType: 'points', graphType: 'polyline',color:'blue'},
-            {points: blueLine[3], fnType: 'points', graphType: 'polyline',color:'blue'},
-            {points: greenLine[0], fnType: 'points', graphType: 'polyline',color:'green'},
-            {points: greenLine[1], fnType: 'points', graphType: 'polyline',color:'green'},
+            {points: blueLine[0], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: blueLine[1], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: blueLine[2], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: blueLine[3], fnType: 'points', graphType: 'polyline', color: 'blue'},
+            {points: greenLine[0], fnType: 'points', graphType: 'polyline', color: 'green'},
+            {points: greenLine[1], fnType: 'points', graphType: 'polyline', color: 'green'},
         ],
         annotations: [
             {x: 1}, {x: 15, text: ''},
@@ -138,8 +141,8 @@
             {x: -1}, {x: 15, text: ''},
             {x: -3}, {x: 15, text: ''},
             {x: -5}, {x: 15, text: ''},
-            {y: 3, text: rowNumber[0]},{y: 2, text: rowNumber[1]},{y: 1, text: rowNumber[2]},
-            {y: 0, text: rowNumber[3]},{y: -1, text: rowNumber[4]},{y: -2, text: rowNumber[5]},
+            {y: 3, text: rowNumber[0]}, {y: 2, text: rowNumber[1]}, {y: 1, text: rowNumber[2]},
+            {y: 0, text: rowNumber[3]}, {y: -1, text: rowNumber[4]}, {y: -2, text: rowNumber[5]},
             {y: -3, text: rowNumber[6]},
 
         ]

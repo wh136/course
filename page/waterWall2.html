@@ -12,7 +12,7 @@
     <script src="../components/newVersion/fp.js"></script>
     <script src="../js_graph/waterWallTools.js"></script>
 </head>
-<body >
+<body>
 <div>
     <div class="menu">
         <ul>
@@ -33,7 +33,10 @@
                     <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
                 </div>
             </div>
-                        <div class="dropdown">
+            <div class="dropdown">
+                <a href="../plot3D/3dPlot.html" class="dropbtn">3D绘图</a>
+            </div>
+            <div class="dropdown">
                 <a href="#" class="dropbtn">帮助</a>
                 <div class="dropdown-content">
                     <a href="UsageMethod.html">关于</a>
@@ -46,7 +49,7 @@
         <h2>挡水墙问题</h2>
     </div>
     <div class="main">
-    <div class="content_waterWall">
+        <div class="content_waterWall">
             <div class="left_waterWall">
                 <img src="../src/water_wall2.jpg">
 
@@ -64,17 +67,17 @@
                 <div id="root1"></div>
                 <div id="root2"></div>
             </div>
-    </div>
+        </div>
     </div>
 </div>
 </body>
 <script>
     // get form data from url
     var request = {
-        QueryString : function(val) {
+        QueryString: function (val) {
             var uri = window.location.search;
-            var re = new RegExp("" +val+ "=([^&?]*)", "ig");
-            return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);
+            var re = new RegExp("" + val + "=([^&?]*)", "ig");
+            return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
         }
     };
     var p1 = request.QueryString("p1");
@@ -86,70 +89,68 @@
 
     var btnX = request.QueryString("Submit");
 
-    var notice='';
+    var notice = '';
     var LineNumber;
-    LineNumber = SigmaXStr(2.4,1,3);
+    LineNumber = SigmaXStr(2.4, 1, 3);
 
 
-    if((btnX==='%E8%AE%A1%E7%AE%97%CF%83x')){
-        notice='σx(kPa)';
-        LineNumber = SigmaXStr(p1,p2,b);
+    if ((btnX === '%E8%AE%A1%E7%AE%97%CF%83x')) {
+        notice = 'σx(kPa)';
+        LineNumber = SigmaXStr(p1, p2, b);
 
-        var aaa_blue=sigmaX_ratioBlue(p1,p2,b);
-        var points_blue =sigmaX_PointsBlue(aaa_blue);
+        var aaa_blue = sigmaX_ratioBlue(p1, p2, b);
+        var points_blue = sigmaX_PointsBlue(aaa_blue);
         var line_blue = points2Lines(points_blue);
 
-        var aaa_Green=sigmaX_ratioGreen(p1,p2,b);
-        var points_Green =sigmaX_PointsGreen(aaa_Green);
+        var aaa_Green = sigmaX_ratioGreen(p1, p2, b);
+        var points_Green = sigmaX_PointsGreen(aaa_Green);
         var line_Green = points2LinesGreen(points_Green);
 
         document.getElementById("p1").value = p1;
         document.getElementById("p2").value = p2;
         document.getElementById("b").value = b;
 
-    }else if(btnX==='%E8%AE%A1%E7%AE%97%CF%83y'){
-        notice='σy(kPa)';
+    } else if (btnX === '%E8%AE%A1%E7%AE%97%CF%83y') {
+        notice = 'σy(kPa)';
         LineNumber = SigmaYStr(p2, b);
 
-        var aaa_blue_SY=sigmaY_ratioBlue(p2,b);
-        var points_blue_SY =sigmaY_PointsBlue(aaa_blue_SY);
+        var aaa_blue_SY = sigmaY_ratioBlue(p2, b);
+        var points_blue_SY = sigmaY_PointsBlue(aaa_blue_SY);
         var line_blue = points2Lines(points_blue_SY);
 
-        var aaa_Green_Y=sigmaY_ratioGreen(p1,p2,b);
-        var points_Green_Y =sigmaY_PointsGreen(aaa_Green_Y);
+        var aaa_Green_Y = sigmaY_ratioGreen(p1, p2, b);
+        var points_Green_Y = sigmaY_PointsGreen(aaa_Green_Y);
         var line_Green = points2LinesGreen(points_Green_Y);
 
         document.getElementById("p1").value = p1;
         document.getElementById("p2").value = p2;
         document.getElementById("b").value = b;
-    }else if(btnX==='%E8%AE%A1%E7%AE%97%CF%84xy'){
-        notice='τxy(kPa)';
+    } else if (btnX === '%E8%AE%A1%E7%AE%97%CF%84xy') {
+        notice = 'τxy(kPa)';
         LineNumber = taoXYStr(p2, b);
 
-        var aaa_blue_taoXY=taoXY_ratioBlue(p2,b);
-        var points_blue_taoXY =taoXY_PointsBlue(aaa_blue_taoXY);
+        var aaa_blue_taoXY = taoXY_ratioBlue(p2, b);
+        var points_blue_taoXY = taoXY_PointsBlue(aaa_blue_taoXY);
         var line_blue = points2Lines(points_blue_taoXY);
 
-        var aaa_Green_taoXY=taoXY_ratioGreen(p1,p2,b);
-        var points_Green_taoXY =taoXY_PointsGreen(aaa_Green_taoXY);
+        var aaa_Green_taoXY = taoXY_ratioGreen(p1, p2, b);
+        var points_Green_taoXY = taoXY_PointsGreen(aaa_Green_taoXY);
         var line_Green = points2LinesGreen(points_Green_taoXY);
 
         document.getElementById("p1").value = p1;
         document.getElementById("p2").value = p2;
         document.getElementById("b").value = b;
-    }else {
-        notice='σx(kPa)';
+    } else {
+        notice = 'σx(kPa)';
 
-        var aaa_blue=sigmaX_ratioBlue(2.4,1,3);
-        var points_blue =sigmaX_PointsBlue(aaa_blue);
+        var aaa_blue = sigmaX_ratioBlue(2.4, 1, 3);
+        var points_blue = sigmaX_PointsBlue(aaa_blue);
         var line_blue = points2Lines(points_blue);
 
-        var aaa_Green=sigmaX_ratioGreen(2.4,1,3);
-        var points_Green =sigmaX_PointsGreen(aaa_Green);
+        var aaa_Green = sigmaX_ratioGreen(2.4, 1, 3);
+        var points_Green = sigmaX_PointsGreen(aaa_Green);
         var line_Green = points2LinesGreen(points_Green);
     }
-
-
 
 
     // var twoDimension=new Array(5);
@@ -165,10 +166,10 @@
     functionPlot({
         title: notice,
         target: '#root',
-        xAxis: {domain: [-4,4], label: 'Y轴'},
-        yAxis: {domain: [-14,1], label: 'X轴'},
+        xAxis: {domain: [-4, 4], label: 'Y轴'},
+        yAxis: {domain: [-14, 1], label: 'X轴'},
         data: [
-            {fn: '-12', range: [-3,3], closed: true, color: 'gray'},
+            {fn: '-12', range: [-3, 3], closed: true, color: 'gray'},
 
             {
                 points: line_blue[0],
@@ -201,23 +202,23 @@
                 color: 'green'
             }
 
-            ],
+        ],
         annotations: [
-            {y: 0, text: '__________'+LineNumber[0]},
-            {y: -1, text: '__________'+LineNumber[1]},
-            {y: -2, text: '__________'+LineNumber[2]},
-            {y: -3, text: '__________'+LineNumber[3]},
-            {y: -4, text: '__________'+LineNumber[4]},
-            {y: -5, text: '__________'+LineNumber[5]},
-            {y: -6, text: '__________'+LineNumber[6]},
-            {y: -7, text: '__________'+LineNumber[7]},
-            {y: -8, text: '__________'+LineNumber[8]},
-            {y: -9, text: '__________'+LineNumber[9]},
-            {y: -10, text: '__________'+LineNumber[10]},
-            {y: -11, text: '__________'+LineNumber[11]},
-            {y: -12, text: '__________'+LineNumber[12]},
+            {y: 0, text: '__________' + LineNumber[0]},
+            {y: -1, text: '__________' + LineNumber[1]},
+            {y: -2, text: '__________' + LineNumber[2]},
+            {y: -3, text: '__________' + LineNumber[3]},
+            {y: -4, text: '__________' + LineNumber[4]},
+            {y: -5, text: '__________' + LineNumber[5]},
+            {y: -6, text: '__________' + LineNumber[6]},
+            {y: -7, text: '__________' + LineNumber[7]},
+            {y: -8, text: '__________' + LineNumber[8]},
+            {y: -9, text: '__________' + LineNumber[9]},
+            {y: -10, text: '__________' + LineNumber[10]},
+            {y: -11, text: '__________' + LineNumber[11]},
+            {y: -12, text: '__________' + LineNumber[12]},
 
-            {x: 1}, {x: -2},{x: 1}, {x: -1},{x: 1}, {x: -1},{x: 1}, {x: 2},
+            {x: 1}, {x: -2}, {x: 1}, {x: -1}, {x: 1}, {x: -1}, {x: 1}, {x: 2},
         ]
     });
     window.onbeforeunload = function () {
