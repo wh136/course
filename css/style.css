@@ -244,4 +244,6 @@ li a:hover, .dropdown:hover {
 .article_content {
     display: block;
 }
+
+.hc__top { height: 0px}
 /* content layout end */
