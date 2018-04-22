@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2aea72f7-7df8-432f-82ac-b51e9b713da8" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/page/UsageMethod.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/page/about.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/page/UsageMethod.html" afterPath="$PROJECT_DIR$/page/UsageMethod.html" />
+      <change beforePath="$PROJECT_DIR$/page/about.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/page/barrelForce3.html" afterPath="$PROJECT_DIR$/page/barrelForce3.html" />
+      <change beforePath="$PROJECT_DIR$/page/beam1.html" afterPath="$PROJECT_DIR$/page/beam1.html" />
+      <change beforePath="$PROJECT_DIR$/page/beam5.html" afterPath="$PROJECT_DIR$/page/beam5.html" />
+      <change beforePath="$PROJECT_DIR$/page/boundaryCondition8.html" afterPath="$PROJECT_DIR$/page/boundaryCondition8.html" />
+      <change beforePath="$PROJECT_DIR$/page/halfPlane10.html" afterPath="$PROJECT_DIR$/page/halfPlane10.html" />
+      <change beforePath="$PROJECT_DIR$/page/planeForce7.html" afterPath="$PROJECT_DIR$/page/planeForce7.html" />
+      <change beforePath="$PROJECT_DIR$/page/smallHole6.html" afterPath="$PROJECT_DIR$/page/smallHole6.html" />
+      <change beforePath="$PROJECT_DIR$/page/tunnelForce4.html" afterPath="$PROJECT_DIR$/page/tunnelForce4.html" />
+      <change beforePath="$PROJECT_DIR$/page/waterWall2.html" afterPath="$PROJECT_DIR$/page/waterWall2.html" />
+      <change beforePath="$PROJECT_DIR$/page/wedge9.html" afterPath="$PROJECT_DIR$/page/wedge9.html" />
+      <change beforePath="$PROJECT_DIR$/test.html" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,28 +37,38 @@
       <file leaf-file-name="wedge9.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/wedge9.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-340">
-              <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+            <state relative-caret-position="-564">
+              <caret line="56" column="23" lean-forward="true" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test.html">
+      <file leaf-file-name="smallHole6.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/smallHole6.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            <state relative-caret-position="969">
+              <caret line="57" column="76" lean-forward="false" selection-start-line="57" selection-start-column="76" selection-end-line="57" selection-end-column="76" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="halfPlane10.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/halfPlane10.html">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+            <state relative-caret-position="17">
+              <caret line="32" column="29" lean-forward="false" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsageMethod.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/page/UsageMethod.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="63" column="18" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -82,6 +104,7 @@
       <find>width</find>
       <find>arrayI</find>
       <find>arrayInit</find>
+      <find>title</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -101,7 +124,6 @@
         <option value="$PROJECT_DIR$/plotJS/beam1.js" />
         <option value="$PROJECT_DIR$/page/barrelForce.html" />
         <option value="$PROJECT_DIR$/page/waterWall.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/beamTool.js" />
         <option value="$PROJECT_DIR$/t1.js" />
         <option value="$PROJECT_DIR$/t2.js" />
@@ -115,21 +137,22 @@
         <option value="$PROJECT_DIR$/js_graph/beamTools.js" />
         <option value="$PROJECT_DIR$/js_graph/beanTools5.js" />
         <option value="$PROJECT_DIR$/js_graph/beamTools5.js" />
-        <option value="$PROJECT_DIR$/page/planeForce7.html" />
-        <option value="$PROJECT_DIR$/page/boundaryCondition8.html" />
-        <option value="$PROJECT_DIR$/page/beam5.html" />
-        <option value="$PROJECT_DIR$/page/smallHole6.html" />
-        <option value="$PROJECT_DIR$/page/tunnelForce4.html" />
-        <option value="$PROJECT_DIR$/page/barrelForce3.html" />
-        <option value="$PROJECT_DIR$/page/beam1.html" />
-        <option value="$PROJECT_DIR$/page/waterWall2.html" />
         <option value="$PROJECT_DIR$/js_graph/smallHoleTools.js" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/page/halfPlane10.html" />
-        <option value="$PROJECT_DIR$/page/wedge9.html" />
-        <option value="$PROJECT_DIR$/page/UsageMethod.html" />
         <option value="$PROJECT_DIR$/page/about.html" />
         <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/page/wedge9.html" />
+        <option value="$PROJECT_DIR$/page/waterWall2.html" />
+        <option value="$PROJECT_DIR$/page/tunnelForce4.html" />
+        <option value="$PROJECT_DIR$/page/smallHole6.html" />
+        <option value="$PROJECT_DIR$/page/planeForce7.html" />
+        <option value="$PROJECT_DIR$/page/halfPlane10.html" />
+        <option value="$PROJECT_DIR$/page/boundaryCondition8.html" />
+        <option value="$PROJECT_DIR$/page/beam5.html" />
+        <option value="$PROJECT_DIR$/page/beam1.html" />
+        <option value="$PROJECT_DIR$/page/barrelForce3.html" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/page/UsageMethod.html" />
       </list>
     </option>
   </component>
@@ -188,6 +211,28 @@
               <item name="Course" type="b2602c69:ProjectViewProjectNode" />
               <item name="Course" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Course" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Course" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Course" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Course" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="function-plot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Course" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Course" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="sizeChoose" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Course" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Course" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -202,7 +247,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/FunctionPloter3D" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -298,7 +343,9 @@
       <workItem from="1524263274711" duration="35384000" />
       <workItem from="1524312932326" duration="2956000" />
       <workItem from="1524319377317" duration="1949000" />
-      <workItem from="1524322528335" duration="975000" />
+      <workItem from="1524322528335" duration="1096000" />
+      <workItem from="1524355343549" duration="13619000" />
+      <workItem from="1524396884325" duration="1950000" />
     </task>
     <task id="LOCAL-00001" summary="Change &lt;h2&gt; width.">
       <created>1524322565634</created>
@@ -307,11 +354,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524322565635</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add new Page.">
+      <created>1524323530005</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1524323530005</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="478890000" />
+    <option name="totallyTimeSpent" value="494580000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -324,8 +378,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18005952" sideWeight="0.49384615" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18005952" sideWeight="0.49384615" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32018209" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -374,7 +429,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Change &lt;h2&gt; width." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change &lt;h2&gt; width." />
+    <MESSAGE value="Add new Page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new Page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -418,13 +474,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://E:/开源项目_坐标系/coordinateSystem/new/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/testJS/d3.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -440,13 +489,6 @@
       </provider>
     </entry>
     <entry file="file://D:/Elasticity/Elasticity/index.html" />
-    <entry file="file://$PROJECT_DIR$/components/function-plot/dist/function-plot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="34" column="44" lean-forward="true" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plotJS/main.js" />
     <entry file="file://$PROJECT_DIR$/plotJS/beam1.js" />
     <entry file="http://cdn.viglink.com/api/vglnk.js">
@@ -507,13 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/beam5_1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -535,13 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="0" column="2297" lean-forward="false" selection-start-line="0" selection-start-column="2294" selection-end-line="0" selection-end-column="2297" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/sizeChoose/normal/fp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="0" column="2278" lean-forward="false" selection-start-line="0" selection-start-column="2275" selection-end-line="0" selection-end-column="2278" />
         </state>
       </provider>
     </entry>
@@ -605,52 +633,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/boundaryCondition8.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="46" column="34" lean-forward="false" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/tunnelForce4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="95" column="4" lean-forward="false" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js_graph/beamTools.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/beam1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/beam5.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/planeForce7.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="47" column="36" lean-forward="false" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/barrelForce3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="174" column="4" lean-forward="false" selection-start-line="174" selection-start-column="4" selection-end-line="195" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -661,65 +647,122 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/page/about.html" />
+    <entry file="file://$PROJECT_DIR$/test.html" />
+    <entry file="file://$PROJECT_DIR$/page/boundaryCondition8.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/beam5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/beam1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/barrelForce3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="43" column="23" lean-forward="true" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/tunnelForce4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/page/waterWall2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="59" column="33" lean-forward="false" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
+        <state relative-caret-position="242">
+          <caret line="38" column="45" lean-forward="false" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/planeForce7.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Training_Application_Form_81111927994463_source/js/jotform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168851">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/smallHole6.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="104" column="19" lean-forward="false" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/UsageMethod.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="119" column="31" lean-forward="false" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
+        <state relative-caret-position="969">
+          <caret line="57" column="76" lean-forward="false" selection-start-line="57" selection-start-column="76" selection-end-line="57" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/halfPlane10.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+        <state relative-caret-position="221">
+          <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/sizeChoose/normal/fp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="0" column="2560" lean-forward="true" selection-start-line="0" selection-start-column="2560" selection-end-line="0" selection-end-column="2560" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/function-plot/dist/function-plot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-236">
+          <caret line="5833" column="25" lean-forward="false" selection-start-line="5833" selection-start-column="20" selection-end-line="5833" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/wedge9.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+        <state relative-caret-position="-564">
+          <caret line="56" column="23" lean-forward="true" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
+    <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        <state relative-caret-position="17">
+          <caret line="32" column="29" lean-forward="false" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/UsageMethod.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="63" column="18" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
           <folding />
         </state>
       </provider>

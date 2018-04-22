@@ -2,9 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>使用方法</title>
+    <title>关于</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 11px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: gray;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+        }
+        .button:hover {
+            background-color: #564961;
+            color: white;
+        }
+    </style>
 </head>
 <body>
+<div>
+    <div class="menu">
+        <ul>
+            <li><a class="active" href="../index.html">首页</a></li>
 
+            <div class="dropdown">
+                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <div class="dropdown-content">
+                    <a href="beam1.html">悬臂梁受集中力分析</a>
+                    <a href="waterWall2.html">挡水墙问题</a>
+                    <a href="barrelForce3.html">圆筒受均布力</a>
+                    <a href="tunnelForce4.html">压力隧洞</a>
+                    <a href="beam5.html">梁受均布荷载</a>
+                    <a href="smallHole6.html">小孔口问题</a>
+                    <a href="planeForce7.html">平面应力与平面应变</a>
+                    <a href="boundaryCondition8.html">边界条件</a>
+                    <a href="wedge9.html">楔形体受重力和液体压力</a>
+                    <a href="halfPlane10.html">半平面体在边界上受竖向集中力</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">帮助</a>
+                <div class="dropdown-content">
+                    <a href="UsageMethod.html">关于</a>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+</div>
+<div id="article">
+    <div class="article_div">
+        <p class="article_content">
+            &nbsp;&nbsp;  本站是关于弹性力学可视化计算的网页版。在开发过程中，借助数千行的VB代码实现而得来。原版VB程序代码冗余，程序逻辑混乱。
+            设计灵活性低，公式输入错误，扩展提高十分困难。本站在仔细研究了各大函数绘图开源项目的优点后，采用了Github
+            上函数画图star第二的开源项目function-plot来作为起跑点。<br>
+            &nbsp;&nbsp;  在开发过程中，存在很多问题，第一是原VB程序是基于像素点画图，而且坐标系方向是左上角为远点，y轴是反向，显然不可能用
+            Javascript去一条一条线段的去描绘。第二本项目应基于函数的画图。因此，考虑使用单位化来解决项目中遇到的最关键的问题。同时也涉及到了
+            坐标系变换。在开发过程中，VB在计算公式方面，有极其糟糕的错误，同样的公式，同样的量，经过手算检验，VB确实是计算错误。至于VB编译器
+            错在哪里，这不是本次任务所关心的。这也验证了曾经有一位计算机科学家说过：不要把VB作为初学者的语言，以防止思维的混乱。
+            本次开发任务在于，模拟连续二元函数的离散化形态，在本站可以输入参数，在浏览器带入了相应公式后，计算出n个点的采样值，画出曲线。
+            在界面布局设计方面，为了加载速度和计算速度，没有使用太多的装饰，设计的理念朝着简洁，迅速，直观的方向。<br>
+            &nbsp;&nbsp;弹性力学可视化模拟在现有软件中比较优秀的有ANSYS.ANSYS软件是美国ANSYS公司研制的大型通用有限元分析(FEA)软件，
+            是世界范围内增长最快的计算机辅助工程（CAE）软件. 如果要实现类似ANSYS，则这个工程量十分巨大，可能用到计算机图形学方面的技术，还有
+            WebGL等<br>
+            &nbsp;&nbsp;由于开发任务的紧急，本站还有很多不足，欢迎同学们和其他访问者，提出建议和需求。
+
+        </p>
+        <a href="https://github.com/wh136/show/issues/1"><input type="submit" name="Submit"  class="button" value="评论"></a>
+    </div>
+
+</div>
 </body>
 </html>
