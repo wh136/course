@@ -1,0 +1,332 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=0" />
+<title>Function Ploter 3D</title>
+
+<script src="display_object.js"></script>
+<script src="Viewer3d.js"></script>
+<script src="Model3d.js"></script>
+<script src="HslRgb.js"></script><link href="../css/style.css" rel="stylesheet">
+</head>
+<body onload="bodyOnLoad()" bgcolor="#000000">
+
+<script language="javascript">
+var initFunctionName="2sin(x)sin(y)";
+var loopColor=true;
+var modelColor=loopColor?0x6666ff:0xcccccc;
+var scale0=1;
+
+var fetf_intervalID;
+var mx0=0,mxt=0,my0=0,myt=0,mxp=0,myp=0;
+
+var mouDown=false;
+var rx0,ry0,rz0;
+var gxing=false;
+var v0;
+var m0;
+var hasTexture=false;
+
+
+var div0;
+var input0;
+var button0;
+
+var unitSizeStart=-1;
+var zoom0x0,zoom0y0,zoom0x1,zoom0y1;
+var zoomtx0,zoomty0,zoomtx1,zoomty1;
+
+function bodyOnLoad(){
+	Model3dEvalMode=true;
+	document.body.style.textAlign="center";
+	m0=new Model3d(960,600,initFunctionName,26,26,1,0,1,1,0,true);
+	v0=m0.model;
+	//v0.set_sight(60);
+	v0.expandFillRange=0.5;
+	v0.useSmooth=true;v0.createN();
+	
+	v0.createShape();
+	addChild(v0.shape,document.body);
+	v0.colour=modelColor;
+	v0.spotInten=0.8;
+	v0.useSpecular=false;
+	v0.ambientr=parseInt((v0.colour>>16&0xff)*0.5);
+	v0.ambientg=parseInt((v0.colour>>8&0xff)*0.5);
+	v0.ambientb=parseInt((v0.colour&0xff)*0.5);
+	v0.tz=v0.mdy;
+	v0.scaleShape=scale0;
+	v0.plot();
+	
+	v0.shape.style.position="relative";
+	div0=document.createElement('div');
+	div0.style.width=v0.shape.width+"px";
+	div0.style.margin="auto";
+	
+	input0=document.createElement('input');
+	input0.style.width="60%";
+	input0.style.fontSize="20px";
+	input0.value=initFunctionName;
+	
+	
+	button0=document.createElement('button');
+	button0.style.width="20%";
+	
+	button0.style.fontSize="20px";
+	button0.innerHTML="Apply";
+	button0.onclick=fbutton0;
+	input0.onkeypress=finput0keypress;
+	
+	div0.appendChild(input0);
+	div0.appendChild(button0);
+	document.body.insertBefore(div0,v0.shape);
+
+	init();
+}
+
+function fbutton0(event){
+	m0.updateFunction(input0.value);	
+	v0.rz=0;
+	v0.rx=0;
+	v0.scaleShape=scale0;
+	v0.plot();
+}
+
+function finput0keypress(event){
+	event=event||window.event;
+	var keyCode=event.keyCode||event.which;
+	if(keyCode==13){
+		fbutton0();
+	}
+}
+
+
+function init(){
+	fetf_intervalID=setInterval(fetf,50);//this.addEventListener(MouseEvent.MOUSE_MOVE,fmouseMove);
+	document.onmousemove=fmouseMove;
+	document.onmousedown=fmouseDown;
+	document.onmouseup=fmouseUp;
+	v0.shape.onmousewheel=fmouseWheel;
+	if(v0.shape.addEventListener){
+		v0.shape.addEventListener("DOMMouseScroll",fmouseWheel);//firefox
+	}
+	document.onkeydown=fkeyDown;
+	document.ontouchmove=ftouchMove;
+	document.ontouchstart=ftouchStart;
+	document.ontouchend=ftouchEnd;
+}
+function fetf(event){
+	event=event||window.event;//是否惯性运动
+	//v0.mdy=160;
+	if(!hasTexture && v0.bmpd!=null){
+		v0.plot();
+		hasTexture=true;
+	}
+	if(mouDown){
+		//dragShape();
+		//pressShape();
+		if(loopColor){
+			v0.colour=addH(v0.colour,0.5);
+			v0.ambientr=parseInt((v0.colour>>16&0xff)*0.5);
+			v0.ambientg=parseInt((v0.colour>>8&0xff)*0.5);
+			v0.ambientb=parseInt((v0.colour&0xff)*0.5);			
+		}
+		v0.plot();
+	}
+	
+	
+}
+function fmouseDown(event){
+	event=event||window.event;
+	updateMouseXY(event);
+	if(mouseX>=v0.shape.offsetLeft && mouseX<v0.shape.offsetLeft+v0.shape.offsetWidth && 
+	   mouseY>=v0.shape.offsetTop && mouseY<v0.shape.offsetTop+v0.shape.offsetHeight){
+	   mouDown=true;
+		mxp=mxt=mx0=mouseX;
+		mxp=mxt=my0=mouseY;
+		rx0=v0.rx;
+		ry0=v0.ry;
+		rz0=v0.rz;
+		gxing=false;
+		unitSizeStart=-1;
+    event.preventDefault();
+	}
+	
+}
+function fmouseUp(event){
+	event=event||window.event;
+	//if(!mouDown){
+	//	updateMouseXY(event);
+	//	pressShape(10);
+	//}
+	mouDown=false;
+}
+function fmouseWheel(event){
+	event=event||window.event;
+	if((event.detail||event.wheelDelta/40)>0){
+		v0.scaleShape/=1.1;
+		v0.plot();
+	}
+	if((event.detail||event.wheelDelta/40)<0){
+		v0.scaleShape*=1.1;
+		v0.plot();
+	}
+	event.preventDefault();
+}
+function dragShape(){
+	mxp=mxt;
+	myp=myt;
+	mxt=mouseX;
+	myt=mouseY;
+	v0.rz=rz0+mx0-mxt;
+	v0.rx=rx0+myt-my0;	
+}
+function pressShape(dr){	
+	if(arguments.length<1)dr=1;
+	mxp=mxt;
+	myp=myt;
+	mxt=mouseX;
+	myt=mouseY;
+	var mx=mouseX-v0.shape.offsetLeft;
+	var my=mouseY-v0.shape.offsetTop;
+	var w=v0.shape.width;
+	var h=v0.shape.height;
+	if(mx<0 || mx>=w || my<0 || my>=h){
+		return;
+	}
+	if(Math.abs(my-h*0.5)*w<Math.abs(mx-w*0.5)*h){
+		if(mx<w*0.5){
+			v0.rz+=1;		
+		}else{
+			v0.rz-=1;
+		}
+	}else{
+		if(my<h*0.5){
+			v0.rx-=1;		
+		}else{
+			v0.rx+=1;
+		}
+	}
+}
+
+function fkeyDown(event){
+	event=event||window.event;
+	var keyCode=window.event?event.keyCode:event.which;
+	switch(keyCode){
+		case 87:v0.ty+=10;
+		v0.plot();
+		break;
+		case 83:v0.ty-=10;
+		v0.plot();
+		break;
+		case 65:v0.tx-=10;
+		v0.plot();
+		break;
+		case 68:v0.tx+=10;
+		v0.plot();
+		break;
+		case 69:v0.tz+=10;
+		v0.plot();
+		break;
+		case 81:v0.tz-=10;
+		v0.plot();
+		break;
+	}
+}
+function addH(colour,dcolour){
+	var hsl=HslRgb.rgbToHsl((colour>>16)&0xff,(colour>>8)&0xff,colour&0xff);
+	var h=hsl.h;
+	h+=dcolour;
+	if(h<0){
+		h+=360;
+	}
+	if(h>360){
+		h-=360;
+	}
+	var rgb=HslRgb.hslToRgb(h, hsl.s, hsl.l);			
+	return HslRgb.rgbToRGB(rgb.r,rgb.g,rgb.b);
+}
+function fmouseMove(event){
+	event=event||window.event;
+	updateMouseXY(event);
+	if(mouDown){
+		//event.preventDefault();
+		dragShape();
+	}
+}
+function ftouchStart(event){
+	event=event||window.event;
+	if(event.targetTouches.length==1){
+		fmouseDown(event.targetTouches[0]);
+	}
+	var workingPoints=event.targetTouches.length;
+	if(workingPoints>=2){
+		event.preventDefault();
+		updateMouseXY(event.targetTouches[0]);		
+	}
+	var canvas=v0.shape;
+	if(workingPoints>=2 &&
+	   mouseX>=canvas.offsetLeft && mouseX<canvas.offsetLeft+canvas.offsetWidth && 
+	   mouseY>=canvas.offsetTop && mouseY<canvas.offsetTop+canvas.offsetHeight){
+		event.preventDefault();
+		zoom0x0=event.targetTouches[0].pageX;
+		zoom0y0=event.targetTouches[0].pageY;
+		zoomtx0=event.targetTouches[0].pageX;
+		zoomty0=event.targetTouches[0].pageY;
+		zoom0x1=event.targetTouches[1].pageX;
+		zoom0y1=event.targetTouches[1].pageY;
+		zoomtx1=event.targetTouches[1].pageX;
+		zoomty1=event.targetTouches[1].pageY;
+		if(workingPoints==2){
+			unitSizeStart=v0.scaleShape;
+		}
+		if(workingPoints==3){
+			v0.rx=0;
+			v0.ry=0;
+			v0.rz=0;
+			v0.scaleShape=scale0;	
+			//v0.useLight=true;
+			gxing=false;
+			mouDown=false;
+			v0.plot();
+		}
+	}
+}
+function ftouchMove(event){
+	event=event||window.event;
+	if(event.targetTouches.length==1){
+		event.preventDefault();
+		fmouseMove(event.targetTouches[0]);
+	}
+	var workingPoints=event.targetTouches.length;
+	if(workingPoints>=2 && unitSizeStart>0 && mouDown){
+		event.preventDefault();
+		zoomtx0=event.targetTouches[0].pageX;
+		zoomty0=event.targetTouches[0].pageY;
+		zoomtx1=event.targetTouches[1].pageX;
+		zoomty1=event.targetTouches[1].pageY;
+		if(isNaN(zoom0x0) || isNaN(zoom0y0) || isNaN(zoom0x1) || isNaN(zoom0y1) || isNaN(zoomtx0) || isNaN(zoomty0) || isNaN(zoomtx1) || isNaN(zoomty1)){
+			return;
+		}
+		if(Math.abs(zoom0x1-zoom0x0)<50 && Math.abs(zoom0y1-zoom0y0)<50){
+			return;
+		}
+		var dx0=zoom0x1-zoom0x0;
+		var dy0=zoom0y1-zoom0y0;
+		var dxt=zoomtx1-zoomtx0;
+		var dyt=zoomty1-zoomty0;
+		v0.scaleShape=unitSizeStart*Math.sqrt((dxt*dxt+dyt*dyt)/(dx0*dx0+dy0*dy0));
+	}
+}
+function ftouchEnd(event){
+	event=event||window.event;
+	if(event.targetTouches.length==1){
+		fmouseUp(event.targetTouches[0]);
+	}
+	mouDown=false;
+}
+</script>
+
+</body>
+</html>
