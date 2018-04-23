@@ -7,6 +7,32 @@
     <script src="../components/d3/d3.min.js"></script>
     <script src="../components/function-plot/dist/function-plot.js"></script>
     <script src="../js_graph/beamTools.js"></script>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 11px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: gray;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+        }
+        .button:hover {
+            background-color: #564961;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
 <div>
@@ -53,10 +79,10 @@
                 <img src="../src/beam2.jpg">
                 <p>h=2m &nbsp; L=15m</p>
                 <form name="form1" method="GET" action="beam1.html">
-                    FN =<input type="text" name="FN" id="FNID" >kN <br> <br>
-                    FS &nbsp;=<input type="text" name="FS" id="FSID" >kN <br> <br>
-                    M &nbsp; =<input type="text" name="M" id="MID" >kN*m <br> <br>
-                    <input type="submit" name="Submit" value="计算">
+                    FN = <input type="text" name="FN" id="FNID" > kN <br> <br>
+                    FS &nbsp;= <input type="text" name="FS" id="FSID" > kN <br> <br>
+                    M &nbsp; = <input type="text" name="M" id="MID" > kN*m <br> <br>
+                    <input type="submit" class="calbutton" name="Submit" value="计算">
                 </form>
             </div>
             <div class="right">
