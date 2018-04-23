@@ -2,7 +2,7 @@
 <html lang="en">
 <script>
     var _hmt = _hmt || [];
-    (function() {
+    (function () {
         var hm = document.createElement("script");
         hm.src = "https://hm.baidu.com/hm.js?25dd518910c914e2f273428933c57baf";
         var s = document.getElementsByTagName("script")[0];
@@ -13,47 +13,115 @@
 <head>
     <title>弹性力学</title>
     <meta charset="utf-8">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
     <script src="baidu_union.js"></script>
+    <style>
+        .logo {
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logoSpace {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
 </head>
-<body bgcolor="black">
+<body >
 
-<ul>
-    <li><a class="active" href="index.html">首页</a></li>
+<div>
+    <div class="menu">
+        <ul>
+            <li><a class="active" href="index.html">首页</a></li>
 
-    <div class="dropdown">
-        <a href="#" class="dropbtn">弹性力学可视化计算</a>
-        <div class="dropdown-content">
-            <a href="page/beam1.html">悬臂梁受集中力分析</a>
-            <a href="page/waterWall2.html">挡水墙问题</a>
-            <a href="page/barrelForce3.html">圆筒受均布力</a>
-            <a href="page/tunnelForce4.html">压力隧洞</a>
-            <a href="page/beam5.html">梁受均布荷载</a>
-            <a href="page/smallHole6.html">小孔口问题</a>
-            <a href="page/planeForce7.html">平面应力与平面应变</a>
-            <a href="page/boundaryCondition8.html">边界条件</a>
-            <a href="page/wedge9.html">楔形体受重力和液体压力</a>
-            <a href="page/halfPlane10.html">半平面体在边界上受竖向集中力</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <div class="dropdown-content">
+                    <a href="page/beam1.html">悬臂梁受集中力分析</a>
+                    <a href="page/waterWall2.html">挡水墙问题</a>
+                    <a href="page/barrelForce3.html">圆筒受均布力</a>
+                    <a href="page/tunnelForce4.html">压力隧洞</a>
+                    <a href="page/beam5.html">梁受均布荷载</a>
+                    <a href="page/smallHole6.html">小孔口问题</a>
+                    <a href="page/planeForce7.html">平面应力与平面应变</a>
+                    <a href="page/boundaryCondition8.html">边界条件</a>
+                    <a href="page/wedge9.html">楔形体受重力和液体压力</a>
+                    <a href="page/halfPlane10.html">半平面体在边界上受竖向集中力</a>
+                </div>
+            </div>
+
+
+            <div class="dropdown">
+                <a href="./plot3D/3dPlot.html" class="dropbtn">3D绘图</a>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="dropbtn">帮助</a>
+                <div class="dropdown-content">
+                    <a href="./page/UsageMethod.html">关于</a>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+
+    <div class="logoSpace">
+        <div class="logo">
+            <img src="src/index.png"/>
+
         </div>
     </div>
 
 
-    <div class="dropdown">
-        <a href="./plot3D/3dPlot.html" class="dropbtn">3D绘图</a>
-    </div>
 
-    <div class="dropdown">
-        <a href="#" class="dropbtn">帮助</a>
-        <div class="dropdown-content">
-            <a href="./page/UsageMethod.html">关于</a>
+</div>
+
+<footer>
+    <div class="content">
+        <div class="numberC">您是本站第 &nbsp;</div>
+        <div align="center" class="numberC_1">
+            <img border="0" src="http://cc.amazingcounters.com/counter.php?i=3221896&c=9666001" alt="AmazingCounters.com">
         </div>
+        <div class="numberC_2">&nbsp; 位客人.</div>
     </div>
-
-</ul>
-
-<div style="text-align:center; "><img src="src/test.jpg" style="vertical-align:middle;"/></div>
-
+</footer>
 
 </body>
+
+
+<style>
+    img {
+        display: flex;
+        justify-content: center;
+    }
+    .content{
+        display: flex;
+        justify-content: center;
+    }
+    .numberC_1 {
+        display: inline-block;
+    }
+    .numberC_2, .numberC {
+        display: inline-block;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 70px;
+        background-color: white;
+        width: 100%;
+    }
+
+
+
+</style>
+
 
 </html>

@@ -225,10 +225,6 @@ li a:hover, .dropdown:hover {
 .article_content {
     /*font-family: "宋体", "Arial", sans-serif;*/
     display: inline-block;
-    /*font-family: "PingHei",STHeitiSC-Light,"Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;*/
-    /*font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;*/
-    /*font: 12px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;*/
-    /*font-family: "SimSun","Arial",sans-serif;*/
 }
 
 #article {
