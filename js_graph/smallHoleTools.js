@@ -49,7 +49,6 @@ function fillNumber2Div(arr) {
     document.getElementById("item10").innerText = '(10)' + arr[9];
     document.getElementById("item11").innerText = '(11)' + arr[10];
     document.getElementById("item12").innerText = '(12)' + arr[11];
-    // document.getElementById("item13").innerText = '(13)' + arr[12];
 }
 
 // circleNum = getCircleNumber(1,1);

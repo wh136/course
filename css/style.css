@@ -1,5 +1,5 @@
 /* menu layout css begin */
-ul {
+.menu_ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@ ul {
     background-color: #2B2B2B;
 }
 
-li {
+.menu_ul li {
     float: left;
 }
 
@@ -52,6 +52,7 @@ li a:hover, .dropdown:hover {
 }
 
 /* menu layout css end  */
+
 /* content layout begin */
 .main {
     width: 100%;
@@ -69,7 +70,9 @@ li a:hover, .dropdown:hover {
 }
 
 .left {
-    width: 500px
+    width: 500px;
+    margin: 0 0 auto;
+
 }
 
 .right {
@@ -82,11 +85,11 @@ li a:hover, .dropdown:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1100px
+    width: 940px
 }
 
 .left_waterWall {
-    width: 650px
+    width: 490px
 }
 
 .right_waterWall {
@@ -116,11 +119,11 @@ li a:hover, .dropdown:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 855px
+    width: 910px
 }
 
 .left_tunnelForce {
-    width: 300px
+    width: 350px
 }
 
 .right_tunnelForce {
@@ -132,11 +135,11 @@ li a:hover, .dropdown:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 955px
+    width: 975px
 }
 
 .left_beam5 {
-    width: 400px
+    width: 420px
 }
 
 .right_beam5 {
@@ -148,11 +151,11 @@ li a:hover, .dropdown:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1050px
+    width: 1180px
 }
 
 .left_smallHole {
-    width: 250px
+    width: 380px
 }
 
 .right_smallHole {
@@ -160,7 +163,6 @@ li a:hover, .dropdown:hover {
     display: block
 }
 
-/*#root1 {display: flex; justify-content: center;}*/
 .mid {
     width: 250px
 }
@@ -248,3 +250,117 @@ li a:hover, .dropdown:hover {
 }
 
 /* content layout end */
+
+
+.form {
+    margin: 20px 15px 0;
+    padding: 0 0 20px
+}
+
+.container1 {
+    margin: 17px auto 15px auto;
+    width: 490px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    opacity: .93;
+    filter: Alpha(Opacity=93);
+    border-radius: 3px
+}
+
+.container2 {
+    margin: 17px auto 15px auto;
+    width: 490px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    opacity: .93;
+    filter: Alpha(Opacity=93);
+    border-radius: 3px
+}
+
+.container3 {
+    margin: 17px auto 15px auto;
+    width: 350px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    opacity: .93;
+    filter: Alpha(Opacity=93);
+    border-radius: 3px
+}
+
+.container5 {
+    margin: 17px auto 15px auto;
+    width: 420px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    opacity: .93;
+    filter: Alpha(Opacity=93);
+    border-radius: 3px
+}
+
+.container6 {
+    margin: 17px auto 15px auto;
+    width: 380px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    opacity: .93;
+    filter: Alpha(Opacity=93);
+    border-radius: 3px
+}
+
+.container10 {
+    margin: 17px auto 15px auto;
+    width: 360px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    opacity: .93;
+    filter: Alpha(Opacity=93);
+    border-radius: 3px
+}
+
+.form>.form_ul {
+    list-style-type: none;
+    list-style-image: none
+}
+
+.form_ul {
+    padding: 0 0 10px 0;
+    position: relative;
+    zoom: 1
+}
+
+.form_ul li {
+    padding: 6px;
+    position: relative;
+    zoom: 1;
+    clear: both;
+    width: 98%;
+    vertical-align: middle;
+    margin-bottom: 2px
+}
+
+
+.content {
+    overflow: hidden
+}
+
+.desc {
+    padding: 3px 0;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin: 0
+}
+
+.input {
+    font-family: "Verdana", "微软雅黑", "宋体", "Lucida Grande";
+    height: auto;
+    background-color: #fff;
+    padding: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 3px
+}
+
+.input:focus {
+    border: 1px solid #649efd
+}

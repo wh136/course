@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>弹性力学</title>
+    <title>弹性力学可视化计算系统</title>
     <meta charset="utf-8">
     <link href="../css/style.css" rel="stylesheet">
-
     <script src="../components/sizeChoose/size2/d3.min.js"></script>
     <script src="../components/sizeChoose/size2/fp.js"></script>
-
     <script src="../js_graph/tunnelForceTools.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: gray;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+
+        .button:hover {
+            background-color: #564961;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <div>
     <div class="menu">
-        <ul>
+        <ul class="menu_ul">
             <li><a class="active" href="../index.html">首页</a></li>
 
             <div class="dropdown">
-                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <a href="#" class="dropbtn">弹性力学可视化计算系统</a>
                 <div class="dropdown-content">
                     <a href="beam1.html">悬臂梁受集中力分析</a>
                     <a href="waterWall2.html">挡水墙问题</a>
@@ -49,28 +74,48 @@
     <div class="main">
         <div class="content_tunnelForce">
             <div class="left_tunnelForce">
-                <img src="../src/tunnelForce4.jpg">
-                <p>外径R=10m &nbsp; 内径r=8m</p>
-                <form name="form1" method="GET" action="tunnelForce4.html">
-                    圆筒弹性常数E=<input type="text" name="E1" id="E1ID" value="2800"> <br> <br>
-                    &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    μ=<input type="text" name="U1" id="U1ID" value="0.2"> <br> <br>
-                    外部弹性常数E=<input type="text" name="E2" id="E2ID" value="120"> <br> <br>
-                    &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    μ=<input type="text" name="U2" id="U2ID" value="0.3"> <br> <br>
-                    &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    q=<input type="text" name="Q" id="QID" value="100"> <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" name="Submit" value="计算σρ"> &nbsp;
-                    <input type="submit" name="Submit" value="计算σΦ">
-                </form>
+                <div class="container3">
+                    <img src="../src/tunnelForce4.jpg">
+                    <form method="GET" action="tunnelForce4.html" class="form">
+                        <ul class="form_ul">
+                            <li>
+                                <label class="desc">外径R=10m &nbsp; 内径r=8m</label>
+                            </li>
+                            <li>
+                                <label class="desc">数据输入</label>
+                            </li>
+                            <li>
+                                <label class="desc">圆筒弹性常数 E (单位MPa)</label>
+                                <input type="text" name="E1" id="E1ID" class="number input " value="2800">
+                            </li>
+                            <li>
+                                <label class="desc">μ </label>
+                                <input type="text" name="U1" id="U1ID" class="number input " value="0.2">
+                            </li>
+                            <li>
+                                <label class="desc">外部弹性常数 E (单位MPa)</label>
+                                <input type="text" name="E2" id="E2ID" class="number input " value="120">
+                            </li>
+                            <li>
+                                <label class="desc">μ </label>
+                                <input type="text" name="U2" id="U2ID" class="number input " value="0.3">
+                            </li>
+                            <li>
+                                <label class="desc">q (单位kN/m)</label>
+                                <input type="text" name="Q" id="QID" class="number input " value="100">
+                            </li>
+
+                            <li>
+                                <input type="submit" class="button" name="Submit" value="计算σρ">
+                                &nbsp;&nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算σΦ">
+                            </li>
+                        </ul>
+                    </form>
+                </div>
             </div>
             <div class="right_tunnelForce">
                 <div id="root"></div>
-                <div id="root1"></div>
             </div>
         </div>
     </div>
@@ -168,7 +213,7 @@
             {points: line[1], fnType: 'points', graphType: 'polyline', color: 'red'},
         ],
         annotations: [
-            {y: 0, text: '______________________10_____________________20______________________30'},
+            {y: 0, text: '______________________10______________________20_______________________30'},
             {y: 2, text: y_text1},
             {y: 4, text: y_text2},
             {y: 6, text: y_text3},

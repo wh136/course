@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>弹性力学</title>
+    <title>弹性力学可视化计算系统</title>
     <meta charset="utf-8">
     <link href="../css/style.css" rel="stylesheet">
-
     <script src="../components/sizeChoose/size1/d3.min.js"></script>
     <script src="../components/sizeChoose/size1/fp.js"></script>
-
     <script src="../js_graph/barrelForceTools.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: gray;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+
+        .button:hover {
+            background-color: #564961;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <div>
     <div class="menu">
-        <ul>
+        <ul class="menu_ul">
             <li><a class="active" href="../index.html">首页</a></li>
-
             <div class="dropdown">
-                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <a href="#" class="dropbtn">弹性力学可视化计算系统</a>
                 <div class="dropdown-content">
                     <a href="beam1.html">悬臂梁受集中力分析</a>
                     <a href="waterWall2.html">挡水墙问题</a>
@@ -49,15 +73,32 @@
     <div class="main">
         <div class="content_barrelForce">
             <div class="left_barrelForce">
-                <img src="../src/barrelForce3.jpg">
-
-                <p>R=5m &nbsp; R=4m</p>
-                <form name="form1" method="GET" action="barrelForce3.html">
-                    q1 =<input type="text" name="Q1" id="Q1ID">KN <br> <br>
-                    q2 &nbsp;=<input type="text" name="Q2" id="Q2ID">KN <br> <br>
-                    <input type="submit" name="Submit" value="计算σρ"> &nbsp;
-                    <input type="submit" name="Submit" value="计算σΦ">
-                </form>
+                <div class="container1">
+                    <img src="../src/barrelForce3.jpg">
+                    <form method="GET" action="barrelForce3.html" class="form">
+                        <ul class="form_ul">
+                            <li>
+                                <label class="desc">R = 5m &nbsp; R = 4m</label>
+                            </li>
+                            <li>
+                                <label class="desc">数据输入</label>
+                            </li>
+                            <li>
+                                <label class="desc">q1 (单位kN)</label>
+                                <input type="text" name="Q1" id="Q1ID" class="number input " value="1">
+                            </li>
+                            <li>
+                                <label class="desc">q2 (单位kN)</label>
+                                <input type="text" name="Q2" id="Q2ID" class="number input " value="10">
+                            </li>
+                            <li>
+                                <input type="submit" class="button" name="Submit" value="计算σρ">
+                                &nbsp;&nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算σΦ">
+                            </li>
+                        </ul>
+                    </form>
+                </div>
             </div>
             <div class="right_barrelForce">
                 <div id="root"></div>
@@ -85,10 +126,10 @@
 
     var notice = '';
 
-    var LineNumber_rou = sigmaRouArr(0, 0);
+    var LineNumber_rou = sigmaRouArr(1, 10);
     var LineNumber = toFixArr(LineNumber_rou);
 
-    var rou = sigmaRouArr(0, 0);
+    var rou = sigmaRouArr(1, 10);
     var ratio = getRatio(rou);
     var line = getLine(ratio);
 

@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>弹性力学</title>
+    <title>弹性力学可视化计算系统</title>
     <meta charset="utf-8">
     <link href="../css/style.css" rel="stylesheet">
-
     <script src="../components/sizeChoose/size1/d3.min.js"></script>
     <script src="../components/sizeChoose/size1/fp.js"></script>
-
     <script src="../js_graph/smallHoleTools.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: gray;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+        .button:hover {
+            background-color: #564961;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
 <div>
     <div class="menu">
-        <ul>
+        <ul class="menu_ul">
             <li><a class="active" href="../index.html">首页</a></li>
 
             <div class="dropdown">
-                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <a href="#" class="dropbtn">弹性力学可视化计算系统</a>
                 <div class="dropdown-content">
                     <a href="beam1.html">悬臂梁受集中力分析</a>
                     <a href="waterWall2.html">挡水墙问题</a>
@@ -49,25 +74,50 @@
     <div class="main">
         <div class="content_smallHole">
             <div class="left_smallHole">
-                <img src="../src/smallHole6.jpg">
-                <p>h=2m &nbsp; L=15m</p>
-                <form name="form1" method="GET" action="smallHole6.html">
-                    q1=<input type="text" name="Q1" id="Q1ID" value="1"> <br><br>
-                    q2=<input type="text" name="Q2" id="Q2ID" value="10"> <br><br>
-                    r&nbsp;&nbsp;&nbsp;=<input type="text" name="R" id="RID" value="0.1"> <br><br>
-                    <p>有小孔情况</p>
-                    <input type="submit" name="Submit" value="计算σρ"> &nbsp;
-                    <input type="submit" name="Submit" value="计算σΦ"> &nbsp;
-                    <input type="submit" name="Submit" value="计算τρΦ"> &nbsp;
-                    <p>无小孔情况</p>
-                    <input type="submit" name="Submit" value="计算σρ."> &nbsp;
-                    <input type="submit" name="Submit" value="计算σΦ."> &nbsp;
-                    <input type="submit" name="Submit" value="计算τρΦ."> &nbsp;
+                <div class="container6">
+                    <img src="../src/smallHole6.jpg" style="">
+                    <form method="GET" action="smallHole6.html" class="form">
+                        <ul class="form_ul">
+                            <li>
+                                <label class="desc">数据输入</label>
+                            </li>
+                            <li>
+                                <label class="desc">q1 (单位kN/m)</label>
+                                <input type="text" name="Q1" id="Q1ID" class="number input " value="1">
+                            </li>
+                            <li>
+                                <label class="desc">q2 (单位kN/m)</label>
+                                <input type="text" name="Q2" id="Q2ID" class="number input " value="10">
+                            </li>
+                            <li><label class="desc">r (单位m)</label>
+                                <input type="text" name="R" id="RID" class="number input " value="0.1">
+                            </li>
+                            <li>
+                                <label class="desc">有小孔情况</label>
+                            </li>
 
-                </form>
+                            <li>
+                                <input type="submit" class="button" name="Submit" value="计算σρ"> &nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算σΦ"> &nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算τρΦ"> &nbsp;
+                            </li>
+                            <li>
+                                <label class="desc">无小孔情况</label>
+                            </li>
+                            <li>
+                                <input type="submit" class="button" name="Submit" value="计算σρ."> &nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算σΦ."> &nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算τρΦ."> &nbsp;
+                            </li>
+                        </ul>
+                    </form>
+
+                </div>
+
             </div>
             <div class="right_smallHole">
                 <div id="root"></div>
+
             </div>
             <div class="mid">
                 <div><p>以X正半轴逆时针方向开始，每条蓝色射线与同心圆交点的数值为：</p></div>

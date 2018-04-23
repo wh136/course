@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>弹性力学</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <title>弹性力学可视化计算系统</title>
     <meta charset="utf-8">
     <link href="../css/style.css" rel="stylesheet">
     <script src="../components/d3/d3.min.js"></script>
     <script src="../components/function-plot/dist/function-plot.js"></script>
     <script src="../js_graph/beamTools.js"></script>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: gray;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+        .button:hover {
+            background-color: #564961;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
 <div>
     <div class="menu">
-        <ul>
+        <ul class="menu_ul">
             <li><a class="active" href="../index.html">首页</a></li>
 
             <div class="dropdown">
-                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <a href="#" class="dropbtn">弹性力学可视化计算系统</a>
                 <div class="dropdown-content">
                     <a href="beam1.html">悬臂梁受集中力分析</a>
                     <a href="waterWall2.html">挡水墙问题</a>
@@ -48,17 +75,39 @@
     <div class="main">
         <div class="content_wedge">
             <div class="left_wedge">
-                <img src="../src/wedge9-1.jpg">
-                <img src="../src/wedge9_2.JPG">
+                <div class="container2">
+                    <img src="../src/wedge9-1.jpg">
+                    <img src="../src/wedge9_2.JPG">
+                    <form method="GET" action="wedge9.html" class="form">
+                        <ul class="form_ul">
+                            <li>
+                                <label class="desc">数据输入</label>
+                            </li>
+                            <li>
+                                <label class="desc">ρ1 (单位g/cm^3)</label>
+                                <input type="text" name="P1" id="P1ID" class="number input " value="1">
+                            </li>
+                            <li>
+                                <label class="desc">ρ2 (单位g/cm^3)</label>
+                                <input type="text" name="P2" id="P2ID" class="number input " value="10">
+                            </li>
+                            <li><label class="desc">α (单位π)</label>
+                                <input type="text" name="A" id="AID" class="number input " value="0.1">
+                            </li>
 
-                <form name="form1" method="GET" action="wedge9.html">
-                    ρ1 =<input type="text" name="P1" id="P1ID">g/cm^3 <br><br>
-                    ρ2 =<input type="text" name="P2" id="P2ID">g/cm^3 <br><br>
-                    α &nbsp; =<input type="text" name="A" id="AID">π <br><br>
-                    <input type="submit" name="Submit" value="计算σx">&nbsp;
-                    <input type="submit" name="Submit" value="计算σy">&nbsp;
-                    <input type="submit" name="Submit" value="计算τxy">&nbsp;
-                </form>
+                            <li>
+                                <input type="submit" class="button" name="Submit" value="计算σx"> &nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算σy"> &nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算τxy"> &nbsp;
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+
+
+
+
+
             </div>
             <div class="right_wedge">
                 <div id="root"></div>

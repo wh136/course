@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>弹性力学</title>
+    <title>弹性力学可视化计算系统</title>
     <meta charset="utf-8">
     <link href="../css/style.css" rel="stylesheet">
     <script src="../components/d3/d3.min.js"></script>
     <script src="../components/function-plot/dist/function-plot.js"></script>
     <script src="../js_graph/beamTools.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: gray;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+
+        .button:hover {
+            background-color: #564961;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
 <div>
     <div class="menu">
-        <ul>
+        <ul class="menu_ul">
             <li><a class="active" href="../index.html">首页</a></li>
 
             <div class="dropdown">
-                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <a href="#" class="dropbtn">弹性力学可视化计算系统</a>
                 <div class="dropdown-content">
                     <a href="beam1.html">悬臂梁受集中力分析</a>
                     <a href="waterWall2.html">挡水墙问题</a>
@@ -43,21 +71,46 @@
 
         </ul>
     </div>
+
     <div class="mid">
         <h2>悬臂梁受集中力</h2>
     </div>
+
     <div class="main">
         <div class="content">
             <div class="left">
-                <img src="../src/beam1.jpg">
-                <img src="../src/beam2.jpg">
-                <p>h=2m &nbsp; L=15m</p>
-                <form name="form1" method="GET" action="beam1.html">
-                    FN =<input type="text" name="FN" id="FNID" >kN <br> <br>
-                    FS &nbsp;=<input type="text" name="FS" id="FSID" >kN <br> <br>
-                    M &nbsp; =<input type="text" name="M" id="MID" >kN*m <br> <br>
-                    <input type="submit" name="Submit" value="计算">
-                </form>
+
+                <div class="container1">
+                    <img src="../src/beam1.jpg">
+                    <img src="../src/beam2.jpg">
+                    <form method="GET" action="beam1.html" class="form">
+                        <ul class="form_ul">
+                            <li>
+                                <label class="desc">h = 2m &nbsp; L = 15m</label>
+                            </li>
+                            <li>
+                                <label class="desc">数据输入</label>
+                            </li>
+                            <li>
+                                <label class="desc">FN (单位kN)</label>
+                                <input type="text" name="FN" id="FNID" class="number input ">
+                            </li>
+                            <li>
+                                <label class="desc">FS (单位kN)</label>
+                                <input type="text" name="FS" id="FSID" class="number input ">
+                            </li>
+                            <li><label class="desc">M (单位kN*m)</label>
+                                <input type="text" name="M" id="MID" class="number input ">
+                            </li>
+                            <li>
+                                <input type="submit" class="button" name="Submit" value="计算">
+
+                            </li>
+                        </ul>
+
+                    </form>
+
+                </div>
             </div>
             <div class="right">
                 <div id="root"></div>
@@ -65,6 +118,9 @@
             </div>
         </div>
     </div>
+
+
+
 </div>
 </body>
 <script>
@@ -79,9 +135,6 @@
     var FN = request.QueryString("FN");
     var FS = request.QueryString("FS");
     var M = request.QueryString("M");
-    // FN = parseFloat(FN);
-    // FS = parseFloat(FS);
-    // M = parseFloat(M);
 
     document.getElementById("FNID").value = FN;
     document.getElementById("FSID").value = FS;

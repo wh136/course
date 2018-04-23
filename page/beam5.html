@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>弹性力学</title>
+    <title>弹性力学可视化计算系统</title>
     <meta charset="utf-8">
     <link href="../css/style.css" rel="stylesheet">
     <script src="../components/sizeChoose/normal/d3.min.js"></script>
     <script src="../components/sizeChoose/normal/fp.js"></script>
     <script src="../js_graph/beamTools5.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: gray;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+        .button:hover {
+            background-color: #564961;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <div>
     <div class="menu">
-        <ul>
+        <ul class="menu_ul">
             <li><a class="active" href="../index.html">首页</a></li>
-
             <div class="dropdown">
-                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <a href="#" class="dropbtn">弹性力学可视化计算系统</a>
                 <div class="dropdown-content">
                     <a href="beam1.html">悬臂梁受集中力分析</a>
                     <a href="waterWall2.html">挡水墙问题</a>
@@ -38,7 +63,6 @@
                     <a href="UsageMethod.html">关于</a>
                 </div>
             </div>
-
         </ul>
     </div>
     <div class="mid">
@@ -47,19 +71,34 @@
     <div class="main">
         <div class="content_beam5">
             <div class="left_beam5">
-                <img src="../src/beam5_1.jpg">
-                <img src="../src/beam5_2.jpg">
-                <p>l=12m 划分为12段 &nbsp; h=1.5m 划分为6段</p>
-                <form name="form1" method="GET" action="beam5.html">
-                    q = <input type="text" name="Q" value="1" id="QID">kN/m <br> <br>
-                    <input type="submit" name="Submit" value="计算σx"> &nbsp;
-                    <input type="submit" name="Submit" value="计算σy"> &nbsp;
-                    <input type="submit" name="Submit" value="计算τxy"> &nbsp;
-                </form>
+                <div class="container5">
+                    <img src="../src/beam5_1.jpg">
+                    <img src="../src/beam5_2.jpg">
+                    <form method="GET" action="beam5.html" class="form">
+                        <ul class="form_ul">
+                            <li>
+                                <label class="desc">l=12m 划分为12段 &nbsp; h=1.5m 划分为6段</label>
+                            </li>
+                            <li>
+                                <label class="desc">数据输入</label>
+                            </li>
+                            <li>
+                                <label class="desc">q (单位kN/m)</label>
+                                <input type="text" name="Q" id="QID" class="number input " value="1">
+                            </li>
+                            <li>
+                                <input type="submit" class="button" name="Submit" value="计算σρ">
+                                &nbsp;&nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算σΦ">
+                                &nbsp;&nbsp;
+                                <input type="submit" class="button" name="Submit" value="计算σΦ">
+                            </li>
+                        </ul>
+                    </form>
+                </div>
             </div>
             <div class="right_beam5">
                 <div id="root"></div>
-                <div id="root1"></div>
             </div>
         </div>
     </div>

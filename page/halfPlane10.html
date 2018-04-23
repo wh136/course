@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>弹性力学</title>
+    <title>弹性力学可视化计算系统</title>
     <meta charset="utf-8">
     <link href="../css/style.css" rel="stylesheet">
     <script src="../components/d3/d3.min.js"></script>
     <script src="../components/function-plot/dist/function-plot.js"></script>
     <script src="../js_graph/beamTools.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: gray;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+        .button:hover {
+            background-color: #564961;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <div>
     <div class="menu">
-        <ul>
+        <ul class="menu_ul">
             <li><a class="active" href="../index.html">首页</a></li>
-
             <div class="dropdown">
-                <a href="#" class="dropbtn">弹性力学可视化计算</a>
+                <a href="#" class="dropbtn">弹性力学可视化计算系统</a>
                 <div class="dropdown-content">
                     <a href="beam1.html">悬臂梁受集中力分析</a>
                     <a href="waterWall2.html">挡水墙问题</a>
@@ -47,12 +72,24 @@
     <div class="main">
         <div class="content_halfPlane">
             <div class="left_halfPlane">
-                <img src="../src/halfPlane10_1.jpg">
-                <img src="../src/halfPlane10_2.jpg">
-                <form name="form1" method="GET" action="beam1.html">
-                    F =<input type="text" name="F" id="FID">kN <br><br>
-                    <input type="submit" name="Submit" value="计算">
-                </form>
+                <div class="container10">
+                    <img src="../src/halfPlane10_1.jpg">
+                    <img src="../src/halfPlane10_2.jpg">
+                    <form method="GET" action="beam5.html" class="form" action="halfPlane10.html">
+                        <ul class="form_ul">
+                            <li>
+                                <label class="desc">数据输入</label>
+                            </li>
+                            <li>
+                                <label class="desc">F (单位kN)</label>
+                                <input type="text" name="F" id="FID" class="number input " value="1">
+                            </li>
+                            <li>
+                                <input type="submit" class="button" name="Submit" value="计算σρ">
+                            </li>
+                        </ul>
+                    </form>
+                </div>
             </div>
             <div class="right_halfPlane">
                 <div id="root"></div>
@@ -75,7 +112,7 @@
     var M = request.QueryString("M");
 
     functionPlot({
-        title: 'σx(kPa)',
+        title: 'σρ(kPa)',
         target: '#root',
         xAxis: {domain: [0, 16], label: 'X轴'},
         yAxis: {domain: [-4, 4], label: 'Y轴'},
