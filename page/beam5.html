@@ -87,11 +87,11 @@
                                 <input type="text" name="Q" id="QID" class="number input " value="1">
                             </li>
                             <li>
-                                <input type="submit" class="button" name="Submit" value="计算σρ">
+                                <input type="submit" class="button" name="Submit" value="计算σx">
                                 &nbsp;&nbsp;
-                                <input type="submit" class="button" name="Submit" value="计算σΦ">
+                                <input type="submit" class="button" name="Submit" value="计算σy">
                                 &nbsp;&nbsp;
-                                <input type="submit" class="button" name="Submit" value="计算σΦ">
+                                <input type="submit" class="button" name="Submit" value="计算τxy">
                             </li>
                         </ul>
                     </form>
@@ -125,7 +125,6 @@
     var greenLine = getGreenLine(ratio_green);
 
     if ((btnX === '%E8%AE%A1%E7%AE%97%CF%83x') && (Q !== null)) {
-
         rowNumber = getRowNumber(Q, 'sigmaX');
         notice = 'σx(kPa)';
         var ratio = getRatio(Q, 'blue', 'sigmaX');
