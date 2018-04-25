@@ -4,10 +4,13 @@
     <title>弹性力学可视化计算系统</title>
     <meta charset="utf-8">
     <link href="../css/style.css" rel="stylesheet">
-    <script src="../components/d3/d3.min.js"></script>
-    <script src="../components/function-plot/dist/function-plot.js"></script>
-    <script src="../js_graph/beamTools.js"></script>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
 </head>
 <body>
 <div>
@@ -34,10 +37,7 @@
                 <a href="../plot3D/3dPlot.html" class="dropbtn">3D绘图</a>
             </div>
             <div class="dropdown">
-                <a href="#" class="dropbtn">帮助</a>
-                <div class="dropdown-content">
-                    <a href="UsageMethod.html">关于</a>
-                </div>
+                <a href="../page/UsageMethod.html" class="dropbtn">关于</a>
             </div>
 
         </ul>
@@ -45,16 +45,65 @@
     <div class="mid">
         <h2>边界条件</h2>
     </div>
-    <div class="main">
-        <div class="content_boundary">
-            <img src="../src/8_2.jpg">
-            <img src="../src/8_1.jpg">
 
-            <img src="../src/8_3.jpg">
-            <img src="../src/8_4.jpg">
-            <img src="../src/8_5.jpg">
+    <div id="article">
+        <div class="article_div" style="display: flex;  flex-direction: column; justify-content: center;align-items: center;">
+            <div style="width: 100%">
+                <h2 style="font-size: large">边界条件</h2>
+                边界条件表示在边界上的位移和约束，或是应力与面力之间的关系式。
+                <br>
+                <h2 style="font-size: large">应力边界条件</h2>
+                在$S_σ$部分边界上任意点的应力与边界面上的面力之间的关系式。<br>
+                <h2 style="font-size: medium ">应力边界条件的两种表达式</h2>
+
+                1.在边界点取出一个微分体，考虑其平衡条件，便可得出应力边界条件表达式。<br>
+                2.在同一边界面上，应力分量应等于对应的面力分量(数值相同 方向一致)由于面力的数值和方向是给定的。
+                因此,在同一边界面上，应力的数值应等于面力的数值，而面力的方向就是应力的方向，应注意面力和应力正负号不同。<br>
+                <h2 style="font-size: medium ">斜面</h2>
+                边界面为斜面的情形，根据微单元体的平衡条件可得，应力(面力)边界条件就是:
+                $$ \left. \begin{array}{l} (lσ_x + mτ_{xy})_s = \overline{f_x} (s) \\ (mσ_y + lτ_{xy})_s = \overline{f_y} (s)\end{array}  \right\} (在S_σ上) $$
+            </div>
+
+            <div> <img src="../src/3.jpg" style="height:100%"> </div>
+
+            <div style="width: 100%">
+                <h2 style="font-size: large">坐标面</h2>
+                边界面为坐标面的情形。<br>
+                若$x = a $为正$x$面，$(σ_x)_{x=a} = \overline{f_x}$ $\quad$  $(τ_{xy})_{x=a} = \overline{f_y}$ <br>
+                若$x = b $为负$x$面，$(σ_x)_{x=b} = - \overline {f_x}$ $\quad$ $(τ_{xy})_{x=b} = - \overline {f_y}$
+
+            </div>
+            <div>
+                <img src="../src/4.jpg" style="height:100%">
+                <img src="../src/5.jpg" style="height:100%">
+            </div>
+
+            <div style="width: 100%">
+                <h2 style="font-size: large">位移边界条件</h2>
+                设物体$S_u$边界上给定了$x$ $y$方向的约束位移分量，则该边界上每一点均满足，$(u)_s = \overline u (s) \quad (v)_s = \overline v (s)$
+                这就是位移边界条件关系式，对于固定约束边界，$(u)_s = 0 \quad (v)_s = 0$
+            </div>
+
+            <div style="width: 100%">
+                <h2 style="font-size: large">混合边界条件</h2>
+                物体的一部分具有已知位移，存在位移边界条件，另一部分边界则具有已知面力，存在应力边界条件，这时是混合边界条件。<br>
+                例如：
+            </div>
+            <div>
+                <img src="../src/6.jpg" style="height:100%">
+            </div>
+            <div style="width: 100%;">
+                位移边界条件 $x = 0$ <br>
+                应力边界条件 $ (τ_{xy})_s = \overline f_y = 0 $
+            </div>
+
+            <div style="height: 80px; width: 100%">
+                <p> &nbsp;</p>
+            </div>
+
         </div>
     </div>
 </div>
+
 </body>
 </html>
