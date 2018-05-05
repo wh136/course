@@ -4,9 +4,9 @@
     <title>弹性力学可视化计算系统</title>
     <meta charset="utf-8">
     <link href="../css/style.css" rel="stylesheet">
-    <script src="../components/d3/d3.min.js"></script>
-    <script src="../components/function-plot/dist/function-plot.js"></script>
-    <script src="../js_graph/beamTools.js"></script>
+    <script src="../components/sizeChoose/size1/d3.min.js"></script>
+    <script src="../components/sizeChoose/size1/fp.js"></script>
+    <script src="../js_graph/halfPlane10.js"></script>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <style>
         .button {
@@ -90,7 +90,10 @@
             </div>
             <div class="right_halfPlane">
                 <div id="root"></div>
-                <div id="root1"></div>
+                <div id="root1">
+                    <div><p>&nbsp;&nbsp;&nbsp;应力分量σρ依次为(由圆内向外):</p></div>
+                    <div id="pressNumber"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -104,19 +107,35 @@
             return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
         }
     };
-    var FN = request.QueryString("FN");
-    var FS = request.QueryString("FS");
-    var M = request.QueryString("M");
+    var F = request.QueryString("F");
+    var btnX = request.QueryString("Submit");
+
+    var force = getCircleNumber(1);
+    document.getElementById('pressNumber').innerText = force;
+
+    if (btnX === '%E8%AE%A1%E7%AE%97%CF%83%CF%81'){
+        force = getCircleNumber(F);
+        document.getElementById('pressNumber').innerText = force;
+        document.getElementById("FID").value = F;
+    } else {
+        force = getCircleNumber(1);
+        document.getElementById('pressNumber').innerText = force;
+
+    }
 
     functionPlot({
         title: 'σρ(kPa)',
         target: '#root',
-        xAxis: {domain: [0, 16], label: 'X轴'},
-        yAxis: {domain: [-4, 4], label: 'Y轴'},
+        xAxis: {domain: [-12,12] },
+        yAxis: {domain: [-23,1]},
         data: [
-            {fn: '-2', range: [0, 15], closed: true, color: 'gray'},
-            {fn: '2', range: [0, 15], closed: true, color: 'gray'},
-
+            {fn: 'sqrt(4 - x * x)-2', color: 'purple'}, {fn: '-sqrt(4 - x * x)-2', color: 'purple'},
+            {fn: 'sqrt(9 - x * x)-3', color: 'purple'}, {fn: '-sqrt(9 - x * x)-3', color: 'purple'},
+            {fn: 'sqrt(16 - x * x)-4', color: 'purple'}, {fn: '-sqrt(16 - x * x)-4', color: 'purple'},
+            {fn: 'sqrt(25 - x * x)-5', color: 'purple'}, {fn: '-sqrt(25 - x * x)-5', color: 'purple'},
+            {fn: 'sqrt(36 - x * x)-6', color: 'purple'}, {fn: '-sqrt(36 - x * x)-6', color: 'purple'},
+            {fn: 'sqrt(49 - x * x)-7', color: 'purple'}, {fn: '-sqrt(49 - x * x)-7', color: 'purple'},
+            {fn: 'sqrt(64 - x * x)-8', color: 'purple'}, {fn: '-sqrt(64 - x * x)-8', color: 'purple'},
         ],
     });
     window.onbeforeunload = function () {
@@ -133,6 +152,7 @@
         document.cookie = "scrollTop=" + scrollPos; //存储滚动条位置到cookies中
     };
 
+    document.getElementById('FID').focus();
 
     window.onload = function () {
         if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
