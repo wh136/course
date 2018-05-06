@@ -72,16 +72,26 @@
 </div>
 
 <footer>
-    <div class="content">
+    <div class="content" id ="imgDisplay">
         <div class="numberC">您是本站第 &nbsp;</div>
         <div align="center" class="numberC_1">
-            <img border="0" src="http://cc.amazingcounters.com/counter.php?i=3221896&c=9666001" alt="AmazingCounters.com">
+            <!--<img border="0" src="http://cc.amazingcounters.com/counter.php?i=3221896&c=9666001" alt="AmazingCounters.com">-->
+            <img border="0" src="http://cc.amazingcounters.com/counter.php?i=3221896&amp;c=9666001" onerror="imgDisplay()">
         </div>
+
         <div class="numberC_2">&nbsp; 位客人.</div>
     </div>
 </footer>
 
 </body>
+
+<script>
+    var divContent = document.getElementById("imgDisplay");
+    function imgDisplay() {
+        divContent.style.display='none';
+    }
+</script>
+
 <style>
     img {
         display: flex;
